@@ -8,6 +8,10 @@
 
 #import "MTFoodController.h"
 #import "MTFoodDetailsController.h"
+//定义宏来保存范围
+#define KHeadViewMaxHeight 180
+#define KHeadViewMinHeight 64
+
 
 @interface MTFoodController ()
 @property (nonatomic, weak) UIView *headView;
@@ -62,19 +66,37 @@
     //获取移动后的点
     CGPoint p = [pan translationInView:pan.view];
     
-    //设置约束
-    [_headView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.height.offset(p.y + _headView.bounds.size.height);
+    //定义一个变量储存高度
+    CGFloat headViewHeight = _headView.bounds.size.height;
+    
+    //设置约束  是更新约束!
+    [_headView mas_updateConstraints:^(MASConstraintMaker *make)
+     {
+        //添加判断
+        if (p.y + headViewHeight <= KHeadViewMinHeight) // 如果它移动后悔小于这个最小高度
+        {
+            //就让他等于最小高度
+            make.height.offset(KHeadViewMinHeight);
+        }
+        else if (p.y + headViewHeight >= KHeadViewMaxHeight) //如果它移动后大于这个最大高度
+        {
+            make.height.offset(KHeadViewMaxHeight);
+        }
+        else
+        {
+            make.height.offset(p.y + headViewHeight);
+        }
+
     }];
     
     //恢复初始值
     [pan setTranslation:CGPointZero inView:pan.view];
 }
 #pragma mark - 临时跳转
-
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
-{
-    MTFoodDetailsController *foodDVC = [[MTFoodDetailsController alloc] init];
-    [self.navigationController pushViewController:foodDVC animated:YES];
-}
+//
+//- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+//{
+//    MTFoodDetailsController *foodDVC = [[MTFoodDetailsController alloc] init];
+//    [self.navigationController pushViewController:foodDVC animated:YES];
+//}
 @end
