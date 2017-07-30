@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "MTFoodController.h"
+#import "MTNavController.h"
 
 @interface AppDelegate ()
 
@@ -16,8 +18,23 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+    //创建window
+    _window = [[UIWindow alloc] init];
+    
+    //创建点餐界面
+    MTFoodController *foodVC = [[MTFoodController alloc] init];
+    
+    //创建导航控制器
+    MTNavController *nav = [[MTNavController alloc] initWithRootViewController:foodVC];
+    
+    //设置主视图并且可见
+    _window.rootViewController = nav;
+    
+    [_window makeKeyAndVisible];
+    
     return YES;
+
 }
 
 

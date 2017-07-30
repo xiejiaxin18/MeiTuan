@@ -53,6 +53,8 @@
 		8AAD6E121F2E09F800D93EC6 /* UILabel+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AAD6E0D1F2E09F800D93EC6 /* UILabel+Addition.m */; };
 		8AAD6E151F2E0A3600D93EC6 /* MTFoodDetailsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AAD6E141F2E0A3600D93EC6 /* MTFoodDetailsController.m */; };
 		8AAD6E181F2E0A4900D93EC6 /* MTFoodController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AAD6E171F2E0A4900D93EC6 /* MTFoodController.m */; };
+		8AAD6E1D1F2E0D5500D93EC6 /* MTNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AAD6E1C1F2E0D5500D93EC6 /* MTNavController.m */; };
+		8AAD6E201F2E0EBE00D93EC6 /* MTBaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AAD6E1F1F2E0EBE00D93EC6 /* MTBaseController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -155,6 +157,10 @@
 		8AAD6E161F2E0A4900D93EC6 /* MTFoodController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTFoodController.h; sourceTree = "<group>"; };
 		8AAD6E171F2E0A4900D93EC6 /* MTFoodController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTFoodController.m; sourceTree = "<group>"; };
 		8AAD6E1A1F2E0ACB00D93EC6 /* Meituan-PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Meituan-PrefixHeader.pch"; path = "../Meituan-PrefixHeader.pch"; sourceTree = "<group>"; };
+		8AAD6E1B1F2E0D5500D93EC6 /* MTNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTNavController.h; sourceTree = "<group>"; };
+		8AAD6E1C1F2E0D5500D93EC6 /* MTNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTNavController.m; sourceTree = "<group>"; };
+		8AAD6E1E1F2E0EBE00D93EC6 /* MTBaseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTBaseController.h; sourceTree = "<group>"; };
+		8AAD6E1F1F2E0EBE00D93EC6 /* MTBaseController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTBaseController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,9 +217,9 @@
 		8AAD6D871F2E08F100D93EC6 /* classes */ = {
 			isa = PBXGroup;
 			children = (
+				8AAD6D8A1F2E08F100D93EC6 /* main */,
 				8AAD6D881F2E08F100D93EC6 /* foodDetails(食物详情) */,
 				8AAD6D891F2E08F100D93EC6 /* foodShop(点餐页面) */,
-				8AAD6D8A1F2E08F100D93EC6 /* main */,
 			);
 			path = classes;
 			sourceTree = "<group>";
@@ -241,6 +247,10 @@
 		8AAD6D8A1F2E08F100D93EC6 /* main */ = {
 			isa = PBXGroup;
 			children = (
+				8AAD6E1B1F2E0D5500D93EC6 /* MTNavController.h */,
+				8AAD6E1C1F2E0D5500D93EC6 /* MTNavController.m */,
+				8AAD6E1E1F2E0EBE00D93EC6 /* MTBaseController.h */,
+				8AAD6E1F1F2E0EBE00D93EC6 /* MTBaseController.m */,
 			);
 			path = main;
 			sourceTree = "<group>";
@@ -465,6 +475,7 @@
 				8AAD6DFC1F2E09F000D93EC6 /* UIButton+WebCache.m in Sources */,
 				8AAD6D901F2E08F100D93EC6 /* AppDelegate.m in Sources */,
 				8AAD6DEF1F2E09F000D93EC6 /* View+MASAdditions.m in Sources */,
+				8AAD6E1D1F2E0D5500D93EC6 /* MTNavController.m in Sources */,
 				8AAD6DFF1F2E09F000D93EC6 /* UIImage+WebP.m in Sources */,
 				8AAD6DEA1F2E09F000D93EC6 /* MASLayoutConstraint.m in Sources */,
 				8AAD6DF41F2E09F000D93EC6 /* SDImageCache.m in Sources */,
@@ -481,6 +492,7 @@
 				8AAD6DF91F2E09F000D93EC6 /* SDWebImageDownloaderOperation.m in Sources */,
 				8AAD6DE41F2E09F000D93EC6 /* AFURLRequestSerialization.m in Sources */,
 				8AAD6DF51F2E09F000D93EC6 /* SDImageCacheConfig.m in Sources */,
+				8AAD6E201F2E0EBE00D93EC6 /* MTBaseController.m in Sources */,
 				8AAD6E0E1F2E09F800D93EC6 /* NSArray+Addition.m in Sources */,
 				8AAD6E111F2E09F800D93EC6 /* UIColor+Addition.m in Sources */,
 				8AAD6DE21F2E09F000D93EC6 /* AFNetworkReachabilityManager.m in Sources */,
@@ -611,7 +623,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 2U5KS365C7;
-				GCC_PREFIX_HEADER = "$(SRCROOT)/MeiTuan/Meituan-PrefixHeader.pch";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/Meituan-PrefixHeader.pch";
 				INFOPLIST_FILE = MeiTuan/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xxx.MeiTuan;
@@ -624,7 +637,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 2U5KS365C7;
-				GCC_PREFIX_HEADER = "$(SRCROOT)/MeiTuan/Meituan-PrefixHeader.pch";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/Meituan-PrefixHeader.pch";
 				INFOPLIST_FILE = MeiTuan/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xxx.MeiTuan;

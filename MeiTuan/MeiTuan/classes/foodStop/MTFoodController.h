@@ -6,8 +6,9 @@
 //  Copyright © 2017年 xjx. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "MTBaseController.h"
 
-@interface MTFoodController : UIViewController
+
+@interface MTFoodController : MTBaseController
 
 @end
