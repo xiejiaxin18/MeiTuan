@@ -12,6 +12,8 @@
 #import "MTShopComment.h"
 #import "MTShopInfoController.h"
 #import "MTShopOrderController.h"
+#import "MTHeadView.h"
+#import "MTPOI_infoModel.h"
 
 //定义宏来保存范围
 #define KHeadViewMaxHeight 180
@@ -21,7 +23,7 @@
 @interface MTFoodController ()<UIScrollViewDelegate>
 
 //头部view
-@property (nonatomic, weak) UIView *headView;
+@property (nonatomic, weak) MTHeadView *headView;
 
 //分享按钮
 @property (nonatomic, strong) UIBarButtonItem *rightButton;
@@ -38,7 +40,8 @@
 //滚动视图
 @property (nonatomic, weak) UIScrollView *scrollView;
 
-
+/// 头部模型数据
+@property (nonatomic, strong) MTPOI_infoModel *POI_infoModel;
 
 @end
 
@@ -46,6 +49,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    //加载数据
+    [self loadDataWithJSON];
+    
     [self setupUI];
 
     
@@ -74,9 +81,9 @@
 - (void)settingHeadView
 {
     //创建头部的大view
-    UIView *headView = [[UIView alloc] init];
+    MTHeadView *headView = [[MTHeadView alloc] init];
     
-    headView.backgroundColor = [UIColor redColor];
+//    headView.backgroundColor = [UIColor redColor];
     
     //添加 约束
     [self.view addSubview:headView];
@@ -85,6 +92,8 @@
         make.top.right.left.offset(0);
         make.height.offset(180);
     }];
+    
+    headView.POI_infoModel = _POI_infoModel;
     
     //添加到属性
     _headView = headView;
@@ -363,6 +372,12 @@
     //转化成dict
     NSDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
     
-    NSDictionary *
+    NSDictionary *poi_info = jsonDict[@"data"][@"poi_info"];
+    
+    //字典转模型
+    MTPOI_infoModel *model = [MTPOI_infoModel POI_infoWithDict:poi_info];
+    
+    _POI_infoModel = model;
 }
+
 @end
