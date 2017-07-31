@@ -28,7 +28,7 @@
         
         [super viewDidLoad];
         //创建导航控制条
-        UINavigationBar *navigationBar = [[UINavigationBar alloc] init];
+        MTNavBar *navigationBar = [[MTNavBar alloc] init];
         
         //创建item
         UINavigationItem *item = [[UINavigationItem alloc] init];
@@ -49,6 +49,7 @@
     return self;
 }
 
+//处理内存警告
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     
@@ -56,6 +57,20 @@
         
         self.view = nil;
     }
+}
+
+// 重写此属性的set方法,此方法调用说明有人想要换状态栏
+- (void)setStatusBarStyle:(UIStatusBarStyle)statusBarStyle {
+    _statusBarStyle = statusBarStyle;
+    
+    // 让设置状态栏样式的方法重新调用
+    [self setNeedsStatusBarAppearanceUpdate];
+}
+
+// 设置状态栏式
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    return self.statusBarStyle;
 }
 
 

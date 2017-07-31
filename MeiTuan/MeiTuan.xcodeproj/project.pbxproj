@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8AA1DDFD1F2E1C98000E70FD /* MTNavBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AA1DDFC1F2E1C98000E70FD /* MTNavBar.m */; };
+		8AA1DE001F2E1F8E000E70FD /* NSObject+LinearFormula.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AA1DDFF1F2E1F8E000E70FD /* NSObject+LinearFormula.m */; };
 		8AAD6D721F2E082600D93EC6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AAD6D711F2E082600D93EC6 /* main.m */; };
 		8AAD6D7D1F2E082600D93EC6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8AAD6D7C1F2E082600D93EC6 /* Assets.xcassets */; };
 		8AAD6D801F2E082600D93EC6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AAD6D7E1F2E082600D93EC6 /* LaunchScreen.storyboard */; };
@@ -58,6 +60,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8AA1DDFB1F2E1C98000E70FD /* MTNavBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTNavBar.h; sourceTree = "<group>"; };
+		8AA1DDFC1F2E1C98000E70FD /* MTNavBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTNavBar.m; sourceTree = "<group>"; };
+		8AA1DDFE1F2E1F8E000E70FD /* NSObject+LinearFormula.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+LinearFormula.h"; sourceTree = "<group>"; };
+		8AA1DDFF1F2E1F8E000E70FD /* NSObject+LinearFormula.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+LinearFormula.m"; sourceTree = "<group>"; };
+		8AA1DE011F2EE9CA000E70FD /* Additions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Additions.h; sourceTree = "<group>"; };
 		8AAD6D6D1F2E082600D93EC6 /* MeiTuan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeiTuan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AAD6D711F2E082600D93EC6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8AAD6D7C1F2E082600D93EC6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -251,6 +258,8 @@
 				8AAD6E1C1F2E0D5500D93EC6 /* MTNavController.m */,
 				8AAD6E1E1F2E0EBE00D93EC6 /* MTBaseController.h */,
 				8AAD6E1F1F2E0EBE00D93EC6 /* MTBaseController.m */,
+				8AA1DDFB1F2E1C98000E70FD /* MTNavBar.h */,
+				8AA1DDFC1F2E1C98000E70FD /* MTNavBar.m */,
 			);
 			path = main;
 			sourceTree = "<group>";
@@ -258,6 +267,9 @@
 		8AAD6D8B1F2E08F100D93EC6 /* Common(分类) */ = {
 			isa = PBXGroup;
 			children = (
+				8AA1DE011F2EE9CA000E70FD /* Additions.h */,
+				8AA1DDFE1F2E1F8E000E70FD /* NSObject+LinearFormula.h */,
+				8AA1DDFF1F2E1F8E000E70FD /* NSObject+LinearFormula.m */,
 				8AAD6E041F2E09F800D93EC6 /* NSArray+Addition.h */,
 				8AAD6E051F2E09F800D93EC6 /* NSArray+Addition.m */,
 				8AAD6E061F2E09F800D93EC6 /* NSAttributedString+Additon.h */,
@@ -469,6 +481,8 @@
 				8AAD6DF61F2E09F000D93EC6 /* SDWebImageCompat.m in Sources */,
 				8AAD6DFB1F2E09F000D93EC6 /* SDWebImagePrefetcher.m in Sources */,
 				8AAD6DE61F2E09F000D93EC6 /* AFURLSessionManager.m in Sources */,
+				8AA1DDFD1F2E1C98000E70FD /* MTNavBar.m in Sources */,
+				8AA1DE001F2E1F8E000E70FD /* NSObject+LinearFormula.m in Sources */,
 				8AAD6DED1F2E09F000D93EC6 /* NSArray+MASAdditions.m in Sources */,
 				8AAD6E0F1F2E09F800D93EC6 /* NSAttributedString+Additon.m in Sources */,
 				8AAD6DE31F2E09F000D93EC6 /* AFSecurityPolicy.m in Sources */,

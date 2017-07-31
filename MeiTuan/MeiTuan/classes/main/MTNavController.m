@@ -36,6 +36,11 @@
     }
 }
 
+// 实现此方法让子控制器去设置状态栏的样式
+- (UIViewController *)childViewControllerForStatusBarStyle {
+    return self.topViewController;
+}
+
 #pragma makr - 返回的按钮的方法
 - (void)back
 {

@@ -18,10 +18,9 @@
     [super viewDidLoad];
     
     //设置背景色
-    self.view.backgroundColor = [UIColor greenColor];
+    self.view.backgroundColor = [UIColor blueColor];
     
-    //给导航条设置背景色
-    self.navBar.barTintColor = [UIColor whiteColor];
+ 
     
     //哈哈
     self.navItem.title = @"哈哈";

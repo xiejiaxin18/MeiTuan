@@ -7,12 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MTNavBar.h"
 
 @interface MTBaseController : UIViewController
 
 //储存导航条属性
-@property (nonatomic, strong , readonly) UINavigationBar *navBar;
+@property (nonatomic, strong , readonly) MTNavBar *navBar;
 
 //储存导航条模型属性
 @property (nonatomic, strong , readonly) UINavigationItem *navItem;
+
+// 状态栏样式
+@property (nonatomic, assign) UIStatusBarStyle statusBarStyle;
 @end
