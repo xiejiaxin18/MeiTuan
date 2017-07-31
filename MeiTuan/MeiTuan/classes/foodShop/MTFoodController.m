@@ -25,6 +25,8 @@
 //标签
 @property (nonatomic, weak) UIView *tagView;
 
+//第一个标签按钮
+@property (nonatomic, weak) UIButton *fistBtn;
 
 @end
 
@@ -87,12 +89,62 @@
     [self.view addSubview:tagView];
     
     [tagView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.headView).offset(0);
+        make.top.equalTo(self.headView.mas_bottom).offset(0);
         make.left.right.offset(0);
         make.height.offset(44);
     }];
     
     _tagView = tagView;
+    
+    //添加按钮
+    _fistBtn = [self makeTagViewBtnWithTitle:@"点菜"];
+    
+    [self makeTagViewBtnWithTitle:@"评价"];
+    
+    [self makeTagViewBtnWithTitle:@"商家"];
+    
+    //添加他们的约束
+    [tagView.subviews mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.bottom.offset(0);
+    }];
+    
+    [tagView.subviews mas_distributeViewsAlongAxis:MASAxisTypeHorizontal withFixedSpacing:0 leadSpacing:0 tailSpacing:0];
+    
+    [self settingYellowView];
+}
+
+#pragma mark - 创建标签栏中的按钮
+- (UIButton *)makeTagViewBtnWithTitle:(NSString *)title
+{
+    UIButton *btn = [[UIButton alloc] init];
+    [btn setTitle:title forState:UIControlStateNormal];
+    
+    //设置颜色
+    [btn setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
+    
+    //设置字号
+    btn.titleLabel.font = [UIFont systemFontOfSize:14];
+
+    [_tagView addSubview:btn];
+    
+    return btn;
+}
+
+#pragma mark - 创建模拟指示条
+- (void)settingYellowView
+{
+    UIView *Yellowview = [[UIView alloc] init];
+    
+    Yellowview.backgroundColor = [UIColor primaryYellowColor];
+    [_tagView addSubview:Yellowview];
+    
+    //设置约束
+    [Yellowview mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.offset(50);
+        make.height.offset(4);
+        make.bottom.offset(0);
+        make.centerX.equalTo(_fistBtn).offset(0);
+    }];
 }
 
 #pragma mark - 创建滚动视图

@@ -9,6 +9,11 @@
 
 @implementation UIColor (Addition)
 
++ (instancetype)primaryYellowColor
+{
+    return [self colorWithHex:0xfed30a];
+}
+
 + (instancetype)colorWithHex:(uint32_t)hex {
     uint8_t r = (hex & 0xff0000) >> 16;
     uint8_t g = (hex & 0x00ff00) >> 8;

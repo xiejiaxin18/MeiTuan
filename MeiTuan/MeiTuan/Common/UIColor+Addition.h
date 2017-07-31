@@ -9,6 +9,9 @@
 
 @interface UIColor (Addition)
 
+//primary 主要的  主题色
++ (instancetype)primaryYellowColor;
+
 /// 使用 16 进制数字创建颜色，例如 0xFF0000 创建红色
 ///
 /// @param hex 16 进制无符号32位整数
