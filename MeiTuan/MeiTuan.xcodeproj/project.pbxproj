@@ -13,6 +13,7 @@
 		8AA1DE0A1F2F2504000E70FD /* MTShopComment.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AA1DE091F2F2504000E70FD /* MTShopComment.m */; };
 		8AA1DE0D1F2F251B000E70FD /* MTShopInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AA1DE0C1F2F251B000E70FD /* MTShopInfoController.m */; };
 		8AA1DE101F2F252C000E70FD /* MTShopOrderController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AA1DE0F1F2F252C000E70FD /* MTShopOrderController.m */; };
+		8AA1DE121F2F315E000E70FD /* food.json in Resources */ = {isa = PBXBuildFile; fileRef = 8AA1DE111F2F315E000E70FD /* food.json */; };
 		8AAD6D721F2E082600D93EC6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AAD6D711F2E082600D93EC6 /* main.m */; };
 		8AAD6D7D1F2E082600D93EC6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8AAD6D7C1F2E082600D93EC6 /* Assets.xcassets */; };
 		8AAD6D801F2E082600D93EC6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AAD6D7E1F2E082600D93EC6 /* LaunchScreen.storyboard */; };
@@ -76,6 +77,7 @@
 		8AA1DE0C1F2F251B000E70FD /* MTShopInfoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTShopInfoController.m; sourceTree = "<group>"; };
 		8AA1DE0E1F2F252C000E70FD /* MTShopOrderController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTShopOrderController.h; sourceTree = "<group>"; };
 		8AA1DE0F1F2F252C000E70FD /* MTShopOrderController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTShopOrderController.m; sourceTree = "<group>"; };
+		8AA1DE111F2F315E000E70FD /* food.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = food.json; sourceTree = "<group>"; };
 		8AAD6D6D1F2E082600D93EC6 /* MeiTuan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeiTuan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AAD6D711F2E082600D93EC6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8AAD6D7C1F2E082600D93EC6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -266,6 +268,9 @@
 				8AAD6D8A1F2E08F100D93EC6 /* main */,
 				8AAD6D881F2E08F100D93EC6 /* foodDetails(食物详情) */,
 				8AAD6D891F2E08F100D93EC6 /* foodShop(点餐页面) */,
+				8AA1DE041F2F24E1000E70FD /* ShopComment(评价) */,
+				8AA1DE051F2F24E1000E70FD /* ShopInfo(商家) */,
+				8AA1DE061F2F24E1000E70FD /* shopOrder(点菜) */,
 			);
 			path = classes;
 			sourceTree = "<group>";
@@ -285,9 +290,6 @@
 			children = (
 				8AA1DE021F2F24E1000E70FD /* MTFoodController.h */,
 				8AA1DE031F2F24E1000E70FD /* MTFoodController.m */,
-				8AA1DE041F2F24E1000E70FD /* ShopComment(评价) */,
-				8AA1DE051F2F24E1000E70FD /* ShopInfo(商家) */,
-				8AA1DE061F2F24E1000E70FD /* shopOrder(点菜) */,
 			);
 			name = "foodShop(点餐页面)";
 			path = foodStop;
@@ -341,6 +343,7 @@
 		8AAD6D8D1F2E08F100D93EC6 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				8AA1DE111F2F315E000E70FD /* food.json */,
 				8AAD6D8E1F2E08F100D93EC6 /* AppDelegate.h */,
 				8AAD6D8F1F2E08F100D93EC6 /* AppDelegate.m */,
 			);
@@ -505,6 +508,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8AA1DE121F2F315E000E70FD /* food.json in Resources */,
 				8AAD6D801F2E082600D93EC6 /* LaunchScreen.storyboard in Resources */,
 				8AAD6D7D1F2E082600D93EC6 /* Assets.xcassets in Resources */,
 			);

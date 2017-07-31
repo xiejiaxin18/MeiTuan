@@ -9,12 +9,16 @@
 #import "MTFoodController.h"
 #import "MTFoodDetailsController.h"
 #import "MTNavBar.h"
+#import "MTShopComment.h"
+#import "MTShopInfoController.h"
+#import "MTShopOrderController.h"
+
 //定义宏来保存范围
 #define KHeadViewMaxHeight 180
 #define KHeadViewMinHeight 64
 
 
-@interface MTFoodController ()
+@interface MTFoodController ()<UIScrollViewDelegate>
 
 //头部view
 @property (nonatomic, weak) UIView *headView;
@@ -27,6 +31,14 @@
 
 //第一个标签按钮
 @property (nonatomic, weak) UIButton *fistBtn;
+
+//小黄条
+@property (nonatomic, weak) UIView *yellowView;
+
+//滚动视图
+@property (nonatomic, weak) UIScrollView *scrollView;
+
+
 
 @end
 
@@ -122,12 +134,26 @@
     //设置颜色
     [btn setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
     
+    // 给按钮添加监听事件
+    [btn addTarget:self action:@selector(tagBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    
+    // 用标签视图子控件的个数来当按钮的tag
+    btn.tag = _tagView.subviews.count;
+    
+    
     //设置字号
     btn.titleLabel.font = [UIFont systemFontOfSize:14];
 
     [_tagView addSubview:btn];
     
     return btn;
+}
+
+#pragma mark - 按钮标签栏中的按钮时调用此方法
+- (void)tagBtnClick:(UIButton *)btn {
+    
+    // 动画的方法让scrollView中的内容滚动
+    [_scrollView setContentOffset:CGPointMake(btn.tag * _scrollView.bounds.size.width, 0) animated:YES];
 }
 
 #pragma mark - 创建模拟指示条
@@ -145,6 +171,7 @@
         make.bottom.offset(0);
         make.centerX.equalTo(_fistBtn).offset(0);
     }];
+    _yellowView = Yellowview;
 }
 
 #pragma mark - 创建滚动视图
@@ -154,11 +181,66 @@
     UIScrollView *scrollView = [[UIScrollView alloc] init];
     [self.view addSubview:scrollView];
     
+    scrollView.delegate = self;
+    
+    scrollView.showsVerticalScrollIndicator = NO;
+    scrollView.showsHorizontalScrollIndicator = NO;
+    scrollView.bounces = NO;
+    scrollView.pagingEnabled = YES;
+    
     //添加约束
     [scrollView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.tagView.mas_bottom).offset(0);
         make.left.bottom.right.offset(0);
     }];
+    
+    //创建三个控制器
+    MTShopComment *scvc = [[MTShopComment alloc] init];
+    MTShopInfoController *ifvc = [[MTShopInfoController alloc] init];
+    MTShopOrderController *odvc = [[MTShopOrderController alloc] init];
+    
+    NSArray *vcArr = @[scvc,ifvc,odvc];
+    
+    //循环遍历添加到scrollview中
+    for (UIViewController *vc in vcArr)
+    {
+        //吧view添加进去
+        [scrollView addSubview:vc.view];
+        
+        //建立父子控制器关系
+        [self addChildViewController:vc];
+        
+        //告诉他
+        [vc didMoveToParentViewController:self];
+    }
+    
+    //设置约束
+    [scrollView.subviews mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.bottom.offset(0);
+        
+        make.width.height.equalTo(scrollView);
+    }];
+    
+    //同高同宽还并排显示
+    [scrollView.subviews mas_distributeViewsAlongAxis:MASAxisTypeHorizontal withFixedSpacing:0 leadSpacing:0 tailSpacing:0];
+    
+    _scrollView = scrollView;
+}
+
+#pragma mark - 监听scrollView的滚动
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    //算页数
+    CGFloat page = scrollView.contentOffset.x / scrollView.bounds.size.width;
+    
+    //计算他一次走的距离
+      CGFloat transformOnceX = _tagView.bounds.size.width / (_tagView.subviews.count - 1);
+    
+    //设置偏移
+    _yellowView.transform = CGAffineTransformMakeTranslation(transformOnceX * page, 0);
+    
+    
+    
 }
 
 #pragma mark - 默认设置
@@ -243,11 +325,44 @@
     //恢复初始值
     [pan setTranslation:CGPointZero inView:pan.view];
 }
-#pragma mark - 临时跳转
-//
-//- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
-//{
-//    MTFoodDetailsController *foodDVC = [[MTFoodDetailsController alloc] init];
-//    [self.navigationController pushViewController:foodDVC animated:YES];
-//}
+
+#pragma mark - 手动拖拽滚动完全停下后来调用此方法
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    // 要整页数
+    NSInteger page = scrollView.contentOffset.x / scrollView.bounds.size.width;
+    // 遍历标签栏中的所有子控件
+    for (NSInteger i = 0; i < _tagView.subviews.count - 1; i++) {
+        
+        // 获取子控件
+        UIButton *btn = _tagView.subviews[i];
+        
+        
+        // i == 页数 刚就就对应相的按钮
+        if (page == i) { // 如果当前页数和按钮对应时,就把按钮中的文字字体加粗
+            btn.titleLabel.font = [UIFont boldSystemFontOfSize:14];
+        } else { // 反之就把按钮的文字再恢复到不加粗
+            btn.titleLabel.font = [UIFont systemFontOfSize:14];
+        }
+        
+    }
+    
+}
+
+#pragma mark - 代码方法滚动并且有动画时,滚动完停来会调用此方法
+- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView {
+    // 手动去调用 手动拖拽停下来的方法,去更新字体
+    [self scrollViewDidEndDecelerating:scrollView];
+}
+
+#pragma mark - 加载数据
+- (void)loadDataWithJSON
+{
+    //加载json文件
+    NSData *data = [NSData dataWithContentsOfURL:[[NSBundle mainBundle] URLForResource:@"food.json" withExtension:nil]];
+    
+    //转化成dict
+    NSDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+    
+    NSDictionary *
+}
 @end
