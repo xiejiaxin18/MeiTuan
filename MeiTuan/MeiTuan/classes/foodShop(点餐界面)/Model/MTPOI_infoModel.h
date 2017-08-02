@@ -22,6 +22,9 @@
 /// 商家公告
 @property (nonatomic, copy) NSString *bulletin;
 
+//轮播广告
+@property (nonatomic, strong) NSArray *discounts2;
+
 //创建类方法
 + (instancetype)POI_infoWithDict:(NSDictionary *)dict;
 @end
