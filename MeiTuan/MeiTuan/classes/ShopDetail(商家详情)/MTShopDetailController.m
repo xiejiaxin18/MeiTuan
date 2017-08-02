@@ -77,6 +77,10 @@
     }];
     
     [self setWithView:contentView];
+    
+//    // TODO:添加捏合手势
+//    UIPinchGestureRecognizer *pinchGesture = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(closeBtnClick)];
+//    [contentView addGestureRecognizer:pinchGesture];
 }
 
 #pragma mark - 滚动视图中的子控件
@@ -233,10 +237,12 @@
         make.bottom.offset(-KMargin);
     }];
 
+    
 }
 
 #pragma mark - 关闭按钮调用的方法
-- (void)closeBtnClick {
+- (void)closeBtnClick
+{
     
     [self dismissViewControllerAnimated:YES completion:nil];
     
@@ -246,5 +252,11 @@
 #pragma mark - 设置状态栏样式
 - (UIStatusBarStyle)preferredStatusBarStyle {
     return UIStatusBarStyleLightContent;
+}
+
+#pragma mark - 抬手就调用
+- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 @end

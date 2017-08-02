@@ -322,11 +322,14 @@
     
     
     // 如果当前是180高度就用白色状态栏,反至用黑色
-    if (headViewHeight == KHeadViewMaxHeight && self.statusBarStyle != UIStatusBarStyleLightContent) {
+    if (headViewHeight == KHeadViewMaxHeight && self.statusBarStyle != UIStatusBarStyleLightContent)
+    {
         
         self.statusBarStyle = UIStatusBarStyleLightContent;
         
-    } else if (headViewHeight == KHeadViewMinHeight && self.statusBarStyle != UIStatusBarStyleDefault){
+    }
+    else if (headViewHeight == KHeadViewMinHeight && self.statusBarStyle != UIStatusBarStyleDefault)
+    {
         self.statusBarStyle = UIStatusBarStyleDefault;
     }
 
@@ -347,9 +350,15 @@
         
         
         // i == 页数 刚就就对应相的按钮
-        if (page == i) { // 如果当前页数和按钮对应时,就把按钮中的文字字体加粗
+        if (page == i)
+        {
+            // 如果当前页数和按钮对应时,就把按钮中的文字字体加粗
             btn.titleLabel.font = [UIFont boldSystemFontOfSize:14];
-        } else { // 反之就把按钮的文字再恢复到不加粗
+            
+        }
+        else
+        {
+            // 反之就把按钮的文字再恢复到不加粗
             btn.titleLabel.font = [UIFont systemFontOfSize:14];
         }
         
