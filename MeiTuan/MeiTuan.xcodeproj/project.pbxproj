@@ -10,6 +10,8 @@
 		8A200FCC1F317B150095A073 /* MTinfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A200FCB1F317B150095A073 /* MTinfoView.m */; };
 		8A200FD21F317C0A0095A073 /* MTInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A200FD11F317C0A0095A073 /* MTInfoModel.m */; };
 		8A200FD51F317CEB0095A073 /* MTLoopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A200FD41F317CEB0095A073 /* MTLoopView.m */; };
+		8A200FDA1F3198520095A073 /* MTShopDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A200FD91F3198520095A073 /* MTShopDetailController.m */; };
+		8A200FDD1F319EC10095A073 /* UIView+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A200FDC1F319EC10095A073 /* UIView+Addition.m */; };
 		8AA1DE001F2E1F8E000E70FD /* NSObject+LinearFormula.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AA1DDFF1F2E1F8E000E70FD /* NSObject+LinearFormula.m */; };
 		8AA1DE121F2F315E000E70FD /* food.json in Resources */ = {isa = PBXBuildFile; fileRef = 8AA1DE111F2F315E000E70FD /* food.json */; };
 		8AA1DE291F2F44DE000E70FD /* MTFoodDetailsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AA1DE151F2F44DE000E70FD /* MTFoodDetailsController.m */; };
@@ -76,6 +78,10 @@
 		8A200FD11F317C0A0095A073 /* MTInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTInfoModel.m; sourceTree = "<group>"; };
 		8A200FD31F317CEB0095A073 /* MTLoopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTLoopView.h; sourceTree = "<group>"; };
 		8A200FD41F317CEB0095A073 /* MTLoopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTLoopView.m; sourceTree = "<group>"; };
+		8A200FD81F3198520095A073 /* MTShopDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTShopDetailController.h; sourceTree = "<group>"; };
+		8A200FD91F3198520095A073 /* MTShopDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTShopDetailController.m; sourceTree = "<group>"; };
+		8A200FDB1F319EC10095A073 /* UIView+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Addition.h"; sourceTree = "<group>"; };
+		8A200FDC1F319EC10095A073 /* UIView+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Addition.m"; sourceTree = "<group>"; };
 		8AA1DDFE1F2E1F8E000E70FD /* NSObject+LinearFormula.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+LinearFormula.h"; sourceTree = "<group>"; };
 		8AA1DDFF1F2E1F8E000E70FD /* NSObject+LinearFormula.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+LinearFormula.m"; sourceTree = "<group>"; };
 		8AA1DE011F2EE9CA000E70FD /* Additions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Additions.h; sourceTree = "<group>"; };
@@ -210,6 +216,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8A200FD71F31983E0095A073 /* ShopDetail(商家详情) */ = {
+			isa = PBXGroup;
+			children = (
+				8A200FD81F3198520095A073 /* MTShopDetailController.h */,
+				8A200FD91F3198520095A073 /* MTShopDetailController.m */,
+			);
+			path = "ShopDetail(商家详情)";
+			sourceTree = "<group>";
+		};
 		8AA1DE131F2F44DE000E70FD /* foodDetails(事物详情) */ = {
 			isa = PBXGroup;
 			children = (
@@ -352,6 +367,7 @@
 		8AAD6D871F2E08F100D93EC6 /* classes */ = {
 			isa = PBXGroup;
 			children = (
+				8A200FD71F31983E0095A073 /* ShopDetail(商家详情) */,
 				8AA1DE191F2F44DE000E70FD /* main */,
 				8AA1DE131F2F44DE000E70FD /* foodDetails(事物详情) */,
 				8AA1DE161F2F44DE000E70FD /* foodShop(点餐界面) */,
@@ -380,6 +396,8 @@
 				8AAD6E0B1F2E09F800D93EC6 /* UIColor+Addition.m */,
 				8AAD6E0C1F2E09F800D93EC6 /* UILabel+Addition.h */,
 				8AAD6E0D1F2E09F800D93EC6 /* UILabel+Addition.m */,
+				8A200FDB1F319EC10095A073 /* UIView+Addition.h */,
+				8A200FDC1F319EC10095A073 /* UIView+Addition.m */,
 			);
 			name = "Common(分类)";
 			path = Common;
@@ -587,6 +605,7 @@
 				8AAD6DFB1F2E09F000D93EC6 /* SDWebImagePrefetcher.m in Sources */,
 				8AAD6DE61F2E09F000D93EC6 /* AFURLSessionManager.m in Sources */,
 				8AA1DE2E1F2F44DE000E70FD /* MTShopComment.m in Sources */,
+				8A200FDA1F3198520095A073 /* MTShopDetailController.m in Sources */,
 				8A200FD21F317C0A0095A073 /* MTInfoModel.m in Sources */,
 				8AA1DE001F2E1F8E000E70FD /* NSObject+LinearFormula.m in Sources */,
 				8AA1DE2B1F2F44DE000E70FD /* MTBaseController.m in Sources */,
@@ -605,6 +624,7 @@
 				8AAD6DE81F2E09F000D93EC6 /* MASConstraint.m in Sources */,
 				8AAD6DFD1F2E09F000D93EC6 /* UIImage+GIF.m in Sources */,
 				8AAD6DF31F2E09F000D93EC6 /* NSImage+WebCache.m in Sources */,
+				8A200FDD1F319EC10095A073 /* UIView+Addition.m in Sources */,
 				8AAD6DEE1F2E09F000D93EC6 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				8A200FD51F317CEB0095A073 /* MTLoopView.m in Sources */,
 				8AAD6DFE1F2E09F000D93EC6 /* UIImage+MultiFormat.m in Sources */,

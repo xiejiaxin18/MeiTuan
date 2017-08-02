@@ -47,25 +47,24 @@
     
     _infoView = infoView;
     _index = 0;
+    
     //添加无线循环
     NSTimer *timer = [NSTimer timerWithTimeInterval:2.0 target:self selector:@selector(setData) userInfo:nil repeats:YES];
     
     [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
     
-
+    
 }
 #pragma mark - 传数据
 -(void)setData
 {
+    //计算下标
+    _index = (_index + 7) % 7;
     
-        //计算下标
-        _index = (_index + 7) % 7;
-        
-        //给infoview传数据
-        _infoView.infoModel =  _loopViewModel[_index];
-        
-        _index++;
+    //给infoview传数据
+    _infoView.infoModel =  _loopViewModel[_index];
     
+    _index++;
 }
 
 -(void)setLoopViewModel:(NSArray<MTInfoModel *> *)loopViewModel

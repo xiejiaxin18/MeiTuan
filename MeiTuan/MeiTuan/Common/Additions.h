@@ -8,3 +8,5 @@
 #import "UILabel+Addition.h"
 
 #import "UIImage+DashLine.h"
+
+#import "UIView+Addition.h"

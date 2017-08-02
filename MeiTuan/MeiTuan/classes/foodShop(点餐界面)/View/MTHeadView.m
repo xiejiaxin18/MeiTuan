@@ -10,6 +10,7 @@
 #import "MTPOI_infoModel.h"
 #import "MTLoopView.h"
 #import "MTInfoModel.h"
+#import "MTShopDetailController.h"
 
 @interface MTHeadView ()
 
@@ -133,9 +134,38 @@
     _nameLabel = nameLabel;
     _noticeLabel = noticeLabel;
     
+    // TODO:给轮播视图添加点击手势
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(loopViewClick)];
+    // 手势添加到loopView上
+    [loopView addGestureRecognizer:tap];
+    
+    
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        // 一启就让它模态出商家详情控制器
+        
+    });
+
+    
 }
 
-#pragma mark - 有了数据之后给子控件设置数据
+#pragma mark - 轮播视图点击手势调用的方法
+- (void)loopViewClick {
+    
+    // 1.创建商家详情控制器
+    MTShopDetailController *detailVC = [[MTShopDetailController alloc] init];
+    
+    // 给商家详情控制器传数据
+    detailVC.PoInfoModel = _POI_infoModel;
+    
+    // 2.模态商家详情控制器
+    [self.viewControler presentViewController:detailVC animated:YES completion:nil];
+    
+}
+ 
+
+
+#pragma mark - 设置数据
 - (void)setPOI_infoModel:(MTPOI_infoModel *)POI_infoModel
 {
     _POI_infoModel = POI_infoModel;

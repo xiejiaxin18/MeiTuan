@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+@class MTInfoModel;
 
 @interface MTPOI_infoModel : NSObject
 
@@ -22,8 +23,17 @@
 /// 商家公告
 @property (nonatomic, copy) NSString *bulletin;
 
-//轮播广告
+/// 轮播广告
 @property (nonatomic, strong) NSArray *discounts2;
+
+/// 起送价
+@property (nonatomic, copy) NSString *min_price_tip;
+
+/// 配送费
+@property (nonatomic, copy) NSString *shipping_fee_tip;
+
+/// 配送时间
+@property (nonatomic, copy) NSString *delivery_time_tip;
 
 //创建类方法
 + (instancetype)POI_infoWithDict:(NSDictionary *)dict;

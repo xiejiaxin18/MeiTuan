@@ -36,14 +36,15 @@
 }
 
 - (void)setupUI {
+    
     //小图标
     UIImageView *iconView = [[UIImageView alloc]init];
     [self addSubview: iconView];
     
     //添加约束
     [iconView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.centerY.offset(0);
-        make.height.width.offset(20);
+        make.left.top.bottom.offset(0);
+        make.width.equalTo(iconView.mas_height);
     }];
     _iconView = iconView;
     
@@ -54,28 +55,22 @@
     //添加约束
     [infoLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(iconView.mas_right).offset(8);
-        make.right.offset(0);
+//        make.right.offset(0);
         make.centerY.offset(0);
     }];
     _infoLabel = infoLabel;
-    
-    
 
 }
-- (void)setInfoModel:(MTInfoModel *)infoModel {
+- (void)setInfoModel:(MTInfoModel *)infoModel
+{
     _infoModel = infoModel;
-    
-    [UIView transitionWithView:self duration:0.25 options:UIViewAnimationOptionTransitionFlipFromBottom animations:^{
+//    
+//    [UIView transitionWithView:self duration:0.25 options:UIViewAnimationOptionTransitionFlipFromBottom animations:^{
         // 图标
         [_iconView sd_setImageWithURL:[NSURL URLWithString:infoModel.icon_url]];
         // 优惠信息
         _infoLabel.text = infoModel.info;
-    } completion:nil];
-    
-    
-     
- 
-    
+//    } completion:nil];
 }
 
 @end
