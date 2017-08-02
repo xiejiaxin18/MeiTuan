@@ -7,8 +7,16 @@
 //
 
 #import "MTShopOrderController.h"
+#import "MTShopOrderCategoryModel.h"
+#import "MTShopOrderFoodModel.h"
 
-@interface MTShopOrderController ()
+//类型表格的重用ID
+static NSString *categoryCellID = @"categoryCellID";
+
+//食物表格的重用ID
+static NSString *foodCellID = @"foodCellID";
+
+@interface MTShopOrderController ()<UITableViewDelegate, UITableViewDataSource>
 
 //创建属性储存类型表格
 @property (nonatomic, weak) UITableView *categoryTableView;
@@ -46,7 +54,15 @@
         make.width.offset(100);
     }];
     
+    //设置代理
+    categoryTableView.delegate = self;
+    categoryTableView.dataSource = self;
+    
+    //添加属性
     _categoryTableView = categoryTableView;
+    
+    //注册cell
+    [categoryTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:categoryCellID];
     
 }
 
@@ -62,6 +78,66 @@
         make.top.right.bottom.offset(0);
         make.left.equalTo(_categoryTableView.mas_right).offset(0);
     }];
-
+    
+    //设置代理
+    foodTableView.delegate = self;
+    foodTableView.dataSource = self;
+    
+    //注册cell
+    [foodTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:foodCellID];
 }
+
+#pragma mark - 实现数据源方法
+//返回组
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    
+    //判断是什么表格
+    if (tableView == _categoryTableView)
+    {
+        return 1;
+    }
+    
+    return _categoryData.count;
+}
+
+//返回行
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    
+    //判断是什么表格
+    if (tableView == _categoryTableView)
+    {
+        return _categoryData.count;
+    }
+    
+    return _categoryData[section].spus.count;// 当前组有多少个食物就表示食物表格当前组有多少行
+}
+
+//返回cell
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    //判断是什么表格
+    if (tableView == _categoryTableView)
+    {
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:categoryCellID forIndexPath:indexPath];
+        
+        //取出类别模型
+        MTShopOrderCategoryModel *categoryModel = _categoryData[indexPath.row];
+        cell.textLabel.text = categoryModel.name;
+        
+        return cell;
+        
+    }
+
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:foodCellID forIndexPath:indexPath];
+    //先取出类别模型
+    MTShopOrderCategoryModel *categoryModel = _categoryData[indexPath.section];
+    
+    //取出食物一个模型
+    MTShopOrderFoodModel *foodModel = categoryModel.spus[indexPath.row];
+    
+    cell.textLabel.text = foodModel.name;
+    
+    return cell;
+}
+
 @end

@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+@class MTShopOrderCategoryModel;
 
 @interface MTShopOrderController : UIViewController
+
+//模型数据
+@property (nonatomic, strong) NSArray<MTShopOrderCategoryModel *> *categoryData;
 
 @end

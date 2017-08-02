@@ -14,6 +14,7 @@
 #import "MTShopOrderController.h"
 #import "MTHeadView.h"
 #import "MTPOI_infoModel.h"
+#import "MTShopOrderCategoryModel.h"
 
 //定义宏来保存范围
 #define KHeadViewMaxHeight 180
@@ -42,6 +43,9 @@
 
 /// 头部模型数据
 @property (nonatomic, strong) MTPOI_infoModel *POI_infoModel;
+
+/// 保存所有食物模型
+@property (nonatomic, strong) NSArray *categoryData;
 
 @end
 
@@ -205,6 +209,10 @@
     
     //创建三个控制器
     MTShopOrderController *odvc = [[MTShopOrderController alloc] init];
+    
+    //传数据
+    odvc.categoryData = _categoryData;
+    
     MTShopComment *scvc = [[MTShopComment alloc] init];
     MTShopInfoController *ifvc = [[MTShopInfoController alloc] init];
     
@@ -375,6 +383,9 @@
 #pragma mark - 加载数据
 - (void)loadDataWithJSON
 {
+    
+    // ^^^^^^^^^^^^^下面是头部视图的数据^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    
     //加载json文件
     NSData *data = [NSData dataWithContentsOfURL:[[NSBundle mainBundle] URLForResource:@"food.json" withExtension:nil]];
     
@@ -387,6 +398,25 @@
     MTPOI_infoModel *model = [MTPOI_infoModel POI_infoWithDict:poi_info];
     
     _POI_infoModel = model;
+    
+    // vvvvvvvvvvv上面是头部视图的数据vvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+    
+    
+    // ^^^^^^^^^^^^^下面是点菜界面的数据^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    
+    NSArray *food_spu_tagsDictArray = jsonDict[@"data"][@"food_spu_tags"];
+    
+    // 创建可变数组用来保存食物类型模型
+    NSMutableArray *categoryArrM = [NSMutableArray arrayWithCapacity:food_spu_tagsDictArray.count];
+    
+    for (NSDictionary *categoryDict in food_spu_tagsDictArray)
+    {
+        MTShopOrderCategoryModel *categoryModel = [MTShopOrderCategoryModel shopOrderCategoryWithDict:categoryDict];
+        [categoryArrM addObject:categoryModel];
+        
+    }
+    
+    _categoryData = categoryArrM;
 }
 
 @end
