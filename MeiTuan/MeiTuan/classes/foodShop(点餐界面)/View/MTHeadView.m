@@ -8,8 +8,8 @@
 
 #import "MTHeadView.h"
 #import "MTPOI_infoModel.h"
-#import "loopView.h"
-#import "LoopViewModel.h"
+#import "MTLoopView.h"
+#import "MTInfoModel.h"
 
 @interface MTHeadView ()
 
@@ -26,7 +26,7 @@
 @property (nonatomic, weak) UILabel *noticeLabel;
 
 //轮播视图
-@property (nonatomic, weak) loopView *loopView;
+@property (nonatomic, weak) MTLoopView *loopView;
 
 
 @end
@@ -64,17 +64,17 @@
     _backImageView = imageView;
     
     //2.添加轮播视图
-    loopView *sloopView = [[loopView alloc] init];
-    [self addSubview:sloopView];
+    MTLoopView *loopView = [[MTLoopView alloc] init];
+    [self addSubview:loopView];
         
-    [sloopView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [loopView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.offset(16);
         make.right.offset(-16);
         make.bottom.offset(-8);
         make.height.offset(20);
     }];
     
-    _loopView = sloopView;
+    _loopView = loopView;
     
     //3.虚线
     UIView *dashLineView = [[UIView alloc] init];
@@ -83,9 +83,9 @@
     
     //约束
     [dashLineView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(sloopView).offset(0);
+        make.left.equalTo(loopView).offset(0);
         make.right.offset(0);
-        make.bottom.equalTo(sloopView.mas_top).offset(-8);
+        make.bottom.equalTo(loopView.mas_top).offset(-8);
         make.height.offset(1);
     }];
     
@@ -155,9 +155,11 @@
     //商家公告
     _noticeLabel.text = POI_infoModel.bulletin;
     
+//    self.loopView.backgroundColor = [UIColor whiteColor];
+    
     NSMutableArray *arrM = [NSMutableArray arrayWithCapacity:POI_infoModel.discounts2.count];
     for (NSDictionary *dict in POI_infoModel.discounts2) {
-        LoopViewModel *loopViewModel = [LoopViewModel loopViewModelWithDict:dict];
+        MTInfoModel *loopViewModel = [MTInfoModel infoWithDict:dict];
         [arrM addObject:loopViewModel];
     }
     _loopView.loopViewModel = arrM;
