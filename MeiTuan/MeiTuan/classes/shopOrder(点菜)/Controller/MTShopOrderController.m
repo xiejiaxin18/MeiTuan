@@ -9,6 +9,7 @@
 #import "MTShopOrderController.h"
 #import "MTShopOrderCategoryModel.h"
 #import "MTShopOrderFoodModel.h"
+#import "MTShopOrderCategoryCell.h"
 
 //类型表格的重用ID
 static NSString *categoryCellID = @"categoryCellID";
@@ -62,7 +63,13 @@ static NSString *foodCellID = @"foodCellID";
     _categoryTableView = categoryTableView;
     
     //注册cell
-    [categoryTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:categoryCellID];
+    [categoryTableView registerClass:[MTShopOrderCategoryCell class] forCellReuseIdentifier:categoryCellID];
+    
+    //设置行高
+    categoryTableView.rowHeight = 60;
+    
+    //隐藏分割线
+    categoryTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
 }
 
@@ -118,11 +125,13 @@ static NSString *foodCellID = @"foodCellID";
     //判断是什么表格
     if (tableView == _categoryTableView)
     {
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:categoryCellID forIndexPath:indexPath];
+        MTShopOrderCategoryCell *cell = [tableView dequeueReusableCellWithIdentifier:categoryCellID forIndexPath:indexPath];
         
         //取出类别模型
         MTShopOrderCategoryModel *categoryModel = _categoryData[indexPath.row];
-        cell.textLabel.text = categoryModel.name;
+        
+        //传数据
+        cell.name= categoryModel.name;
         
         return cell;
         
