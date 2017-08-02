@@ -83,57 +83,60 @@
 - (void)setWithView:(UIView *)contentView
 {
     // TODO: 店名
-    UILabel *shopNameLabel = [UILabel makeLabelWithText:_PoInfoModel.name andTextFont:14 andTextColor:[UIColor whiteColor]];
+    UILabel *nameLabel = [UILabel makeLabelWithText:_PoInfoModel.name andTextFont:14 andTextColor:[UIColor whiteColor]];
+    [contentView addSubview:nameLabel];
     
-    [contentView addSubview:shopNameLabel];
-    
-    [shopNameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+    //约束
+    [nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.offset(0);
         make.top.offset(64);
     }];
     
     
     // TODO: 起送价及配送
-    UILabel *shopTipLabel = [UILabel makeLabelWithText:[NSString stringWithFormat:@"%@ | %@ | %@", _PoInfoModel.min_price_tip, _PoInfoModel.shipping_fee_tip, _PoInfoModel.delivery_time_tip] andTextFont:12 andTextColor:[UIColor colorWithWhite:1 alpha:0.9]];
+    UILabel *tipLabel = [UILabel makeLabelWithText:[NSString stringWithFormat:@"%@ | %@ | %@", _PoInfoModel.min_price_tip, _PoInfoModel.shipping_fee_tip, _PoInfoModel.delivery_time_tip] andTextFont:12 andTextColor:[UIColor colorWithWhite:1 alpha:0.9]];
+    [contentView addSubview:tipLabel];
     
-    [contentView addSubview:shopTipLabel];
-    
-    [shopTipLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+    //约束
+    [tipLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.offset(0);
-        make.top.equalTo(shopNameLabel.mas_bottom).offset(KMargin * 0.5);
+        make.top.equalTo(nameLabel.mas_bottom).offset(KMargin * 0.5);
     }];
     
     // TODO: 折扣信息
-    UILabel *shopDiscountLabel = [UILabel makeLabelWithText:@"折扣信息" andTextFont:16 andTextColor:[UIColor whiteColor]];
-    [contentView addSubview:shopDiscountLabel];
+    UILabel *discountLabel = [UILabel makeLabelWithText:@"折扣信息" andTextFont:16 andTextColor:[UIColor whiteColor]];
+    [contentView addSubview:discountLabel];
     
-    [shopDiscountLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+    //约束
+    [discountLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.offset(0);
-        make.top.equalTo(shopTipLabel.mas_bottom).offset(KMargin * 2.5);
+        make.top.equalTo(tipLabel.mas_bottom).offset(KMargin * 2.5);
     }];
     
     // TODO: 折扣信息两边的线
-    UIView *shopDiscountLineViewLeft = [[UIView alloc] init];
-    shopDiscountLineViewLeft.backgroundColor = [UIColor whiteColor];
-    [contentView addSubview:shopDiscountLineViewLeft];
+    UIView *discountLineViewLeft = [[UIView alloc] init];
+    discountLineViewLeft.backgroundColor = [UIColor whiteColor];
+    [contentView addSubview:discountLineViewLeft];
     
-    [shopDiscountLineViewLeft mas_makeConstraints:^(MASConstraintMaker *make) {
+    // 约束
+    [discountLineViewLeft mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.offset(KMargin);
         make.height.offset(1);
-        make.right.equalTo(shopDiscountLabel.mas_left).offset(-KMargin);
-        make.centerY.equalTo(shopDiscountLabel).offset(0);
+        make.right.equalTo(discountLabel.mas_left).offset(-KMargin);
+        make.centerY.equalTo(discountLabel).offset(0);
     }];
     
     
-    UIView *shopDiscountLineViewRight = [[UIView alloc] init];
-    shopDiscountLineViewRight.backgroundColor = [UIColor whiteColor];
-    [contentView addSubview:shopDiscountLineViewRight];
+    UIView *discountLineViewRight = [[UIView alloc] init];
+    discountLineViewRight.backgroundColor = [UIColor whiteColor];
+    [contentView addSubview:discountLineViewRight];
     
-    [shopDiscountLineViewRight mas_makeConstraints:^(MASConstraintMaker *make) {
+    // 约束
+    [discountLineViewRight mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.offset(-KMargin);
         make.height.offset(1);
-        make.left.equalTo(shopDiscountLabel.mas_right).offset(KMargin);
-        make.centerY.equalTo(shopDiscountLabel).offset(0);
+        make.left.equalTo(discountLabel.mas_right).offset(KMargin);
+        make.centerY.equalTo(discountLabel).offset(0);
     }];
     
     
@@ -143,45 +146,48 @@
     
     // 设置轴向
     stackView.axis = UILayoutConstraintAxisVertical;
+    
     // 设置分布方式 等分填充
     stackView.distribution = UIStackViewDistributionFillEqually;
+    
     // 间距每一个之间的间距
     stackView.spacing = 10;
     
 
-    // 根据优惠信息的模型个数for循环创建infoView
-    for (MTInfoModel *infoModel in _PoInfoModel.discounts2)
+    // 循环创建infoView
+    for (NSDictionary *dict in _PoInfoModel.discounts2)
     {
         
+        // 字典转模型
         MTinfoView *infoView = [[MTinfoView alloc] init];
         
-        
+        MTInfoModel *infoModel = [MTInfoModel infoWithDict:dict];
         infoView.infoModel = infoModel;
-        // 不要用addSubView方法
+        
         [stackView addArrangedSubview:infoView];
+        
     }
     
     [contentView addSubview:stackView];
     
+    // 约束
     [stackView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.offset(KMargin);
         make.right.offset(-KMargin);
-        make.top.equalTo(shopDiscountLabel.mas_bottom).offset(KMargin);
+        make.top.equalTo(discountLabel.mas_bottom).offset(KMargin);
         make.height.offset(_PoInfoModel.discounts2.count * 30);
     }];
-    
     
     
     // TODO: 折扣信息
     UILabel *shopBulletinLabel = [UILabel makeLabelWithText:@"公告信息" andTextFont:16 andTextColor:[UIColor whiteColor]];
     [contentView addSubview:shopBulletinLabel];
     
+    // 约束
     [shopBulletinLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.offset(0);
         make.top.equalTo(stackView.mas_bottom).offset(KMargin * 2.5);
     }];
-    
-    
     
     
     // TODO: 折扣信息两边的线
@@ -189,6 +195,7 @@
     shopBulletinLineViewLeft.backgroundColor = [UIColor whiteColor];
     [contentView addSubview:shopBulletinLineViewLeft];
     
+    // 约束
     [shopBulletinLineViewLeft mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.offset(KMargin);
         make.height.offset(1);
@@ -201,6 +208,7 @@
     shopBulletinLineViewRight.backgroundColor = [UIColor whiteColor];
     [contentView addSubview:shopBulletinLineViewRight];
     
+    // 约束
     [shopBulletinLineViewRight mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.offset(-KMargin);
         make.height.offset(1);
@@ -217,7 +225,7 @@
     
     shopBulletionInfoLabel.numberOfLines = 0;
     
-    //约束
+    // 约束
     [shopBulletionInfoLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.offset(KMargin);
         make.top.equalTo(shopBulletinLabel.mas_bottom).offset(KMargin);

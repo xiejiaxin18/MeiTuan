@@ -14,4 +14,6 @@
 //模型
 @property (nonatomic, strong) MTPOI_infoModel *PoInfoModel;
 
+
+
 @end

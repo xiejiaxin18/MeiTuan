@@ -77,6 +77,16 @@
     
     _loopView = loopView;
     
+    //2.1 添加轮播视图右边的小箭头
+    UIImageView *arrowView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"icon_arrow_white"]];
+    [loopView addSubview:arrowView];
+    
+    [arrowView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.offset(0);
+        make.centerY.offset(0);
+    }];
+
+    
     //3.虚线
     UIView *dashLineView = [[UIView alloc] init];
     dashLineView.backgroundColor = [UIColor colorWithPatternImage:[UIImage dashLineViewWithColor:[UIColor whiteColor]]];
@@ -99,10 +109,10 @@
     headxView.clipsToBounds = YES;
     headxView.contentMode = UIViewContentModeScaleAspectFill;
     
-    // 设置边框颜色
+    //设置边框颜色
     headxView.layer.borderColor = [UIColor colorWithWhite:1 alpha:0.7].CGColor;
     
-    // 边框宽度
+    //边框宽度
     headxView.layer.borderWidth = 2;
     
     [headxView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -134,17 +144,12 @@
     _nameLabel = nameLabel;
     _noticeLabel = noticeLabel;
     
-    // TODO:给轮播视图添加点击手势
+    //TODO:给轮播添加手势
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(loopViewClick)];
-    // 手势添加到loopView上
+    
+    //添加手势
     [loopView addGestureRecognizer:tap];
     
-    
-    
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        // 一启就让它模态出商家详情控制器
-        
-    });
 
     
 }
@@ -152,13 +157,13 @@
 #pragma mark - 轮播视图点击手势调用的方法
 - (void)loopViewClick {
     
-    // 1.创建商家详情控制器
+    //创建商家详情控制器
     MTShopDetailController *detailVC = [[MTShopDetailController alloc] init];
     
-    // 给商家详情控制器传数据
+    //传数据
     detailVC.PoInfoModel = _POI_infoModel;
     
-    // 2.模态商家详情控制器
+    //模态商家详情控制器
     [self.viewControler presentViewController:detailVC animated:YES completion:nil];
     
 }
@@ -170,7 +175,7 @@
 {
     _POI_infoModel = POI_infoModel;
     
-    // 删除url后面多余的.webp后缀
+    // 删除p后缀
     NSString *bgImageURLStr = [POI_infoModel.poi_back_pic_url stringByDeletingPathExtension];
     
     // 设置背景图片
@@ -182,10 +187,9 @@
     // 店名
     _nameLabel.text = POI_infoModel.name;
     
-    //商家公告
+    // 商家公告
     _noticeLabel.text = POI_infoModel.bulletin;
     
-//    self.loopView.backgroundColor = [UIColor whiteColor];
     
     NSMutableArray *arrM = [NSMutableArray arrayWithCapacity:POI_infoModel.discounts2.count];
     for (NSDictionary *dict in POI_infoModel.discounts2) {
@@ -193,6 +197,8 @@
         [arrM addObject:loopViewModel];
     }
     _loopView.loopViewModel = arrM;
+    
+    
     
 }
 

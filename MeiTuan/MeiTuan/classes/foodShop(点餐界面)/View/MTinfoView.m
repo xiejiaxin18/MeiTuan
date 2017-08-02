@@ -64,13 +64,14 @@
 - (void)setInfoModel:(MTInfoModel *)infoModel
 {
     _infoModel = infoModel;
-//    
-//    [UIView transitionWithView:self duration:0.25 options:UIViewAnimationOptionTransitionFlipFromBottom animations:^{
+    
+    [UIView transitionWithView:self duration:0.25 options:UIViewAnimationOptionTransitionFlipFromBottom animations:^{
         // 图标
         [_iconView sd_setImageWithURL:[NSURL URLWithString:infoModel.icon_url]];
+        
         // 优惠信息
         _infoLabel.text = infoModel.info;
-//    } completion:nil];
+    } completion:nil];
 }
 
 @end
