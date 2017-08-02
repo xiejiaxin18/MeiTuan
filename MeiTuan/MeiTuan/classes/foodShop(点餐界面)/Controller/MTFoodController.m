@@ -204,11 +204,11 @@
     }];
     
     //创建三个控制器
+    MTShopOrderController *odvc = [[MTShopOrderController alloc] init];
     MTShopComment *scvc = [[MTShopComment alloc] init];
     MTShopInfoController *ifvc = [[MTShopInfoController alloc] init];
-    MTShopOrderController *odvc = [[MTShopOrderController alloc] init];
     
-    NSArray *vcArr = @[scvc,ifvc,odvc];
+    NSArray *vcArr = @[odvc,scvc,ifvc];
     
     //循环遍历添加到scrollview中
     for (UIViewController *vc in vcArr)
