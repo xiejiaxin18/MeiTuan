@@ -74,6 +74,8 @@
 		8AFA74BB1F32101F00EC88AA /* MTShopOrderFoodModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AFA74BA1F32101F00EC88AA /* MTShopOrderFoodModel.m */; };
 		8AFA74BE1F32142E00EC88AA /* MTShopOrderCategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AFA74BD1F32142E00EC88AA /* MTShopOrderCategoryCell.m */; };
 		8AFA74C11F32175500EC88AA /* MTShopOrderFoodHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AFA74C01F32175500EC88AA /* MTShopOrderFoodHeaderView.m */; };
+		8AFA74CA1F321D4C00EC88AA /* MTShopOrderFoodCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AFA74C81F321D4C00EC88AA /* MTShopOrderFoodCell.m */; };
+		8AFA74CB1F321D4C00EC88AA /* MTShopOrderFoodCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8AFA74C91F321D4C00EC88AA /* MTShopOrderFoodCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -218,6 +220,9 @@
 		8AFA74BD1F32142E00EC88AA /* MTShopOrderCategoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTShopOrderCategoryCell.m; sourceTree = "<group>"; };
 		8AFA74BF1F32175500EC88AA /* MTShopOrderFoodHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTShopOrderFoodHeaderView.h; sourceTree = "<group>"; };
 		8AFA74C01F32175500EC88AA /* MTShopOrderFoodHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTShopOrderFoodHeaderView.m; sourceTree = "<group>"; };
+		8AFA74C71F321D4C00EC88AA /* MTShopOrderFoodCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTShopOrderFoodCell.h; sourceTree = "<group>"; };
+		8AFA74C81F321D4C00EC88AA /* MTShopOrderFoodCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTShopOrderFoodCell.m; sourceTree = "<group>"; };
+		8AFA74C91F321D4C00EC88AA /* MTShopOrderFoodCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MTShopOrderFoodCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -601,6 +606,9 @@
 				8AFA74BD1F32142E00EC88AA /* MTShopOrderCategoryCell.m */,
 				8AFA74BF1F32175500EC88AA /* MTShopOrderFoodHeaderView.h */,
 				8AFA74C01F32175500EC88AA /* MTShopOrderFoodHeaderView.m */,
+				8AFA74C71F321D4C00EC88AA /* MTShopOrderFoodCell.h */,
+				8AFA74C81F321D4C00EC88AA /* MTShopOrderFoodCell.m */,
+				8AFA74C91F321D4C00EC88AA /* MTShopOrderFoodCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -668,6 +676,7 @@
 				8AA1DE121F2F315E000E70FD /* food.json in Resources */,
 				8AAD6D801F2E082600D93EC6 /* LaunchScreen.storyboard in Resources */,
 				8AAD6D7D1F2E082600D93EC6 /* Assets.xcassets in Resources */,
+				8AFA74CB1F321D4C00EC88AA /* MTShopOrderFoodCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -716,6 +725,7 @@
 				8AAD6DF71F2E09F000D93EC6 /* SDWebImageDecoder.m in Sources */,
 				8AAD6DE71F2E09F000D93EC6 /* MASCompositeConstraint.m in Sources */,
 				8AAD6DF21F2E09F000D93EC6 /* NSData+ImageContentType.m in Sources */,
+				8AFA74CA1F321D4C00EC88AA /* MTShopOrderFoodCell.m in Sources */,
 				8AAD6DF91F2E09F000D93EC6 /* SDWebImageDownloaderOperation.m in Sources */,
 				8AFA74B81F320F8600EC88AA /* MTShopOrderCategoryModel.m in Sources */,
 				8AAD6DE41F2E09F000D93EC6 /* AFURLRequestSerialization.m in Sources */,

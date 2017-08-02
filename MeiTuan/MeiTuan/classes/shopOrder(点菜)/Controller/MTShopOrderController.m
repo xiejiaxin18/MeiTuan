@@ -95,7 +95,8 @@ static NSString *foodHeaderViewID = @"foodHeaderViewID";
     foodTableView.dataSource = self;
     
     //注册cell
-    [foodTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:foodCellID];
+    UINib *nib = [UINib nibWithNibName:@"MTShopOrderFoodCell" bundle:nil];
+    [foodTableView registerNib:nib forCellReuseIdentifier:foodCellID];
     
     // 注册头部视图
     [foodTableView registerClass:[MTShopOrderFoodHeaderView class] forHeaderFooterViewReuseIdentifier:foodHeaderViewID];

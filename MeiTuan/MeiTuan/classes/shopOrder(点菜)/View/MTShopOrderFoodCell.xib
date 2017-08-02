@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="134" id="KGk-i7-Jjw" customClass="MTShopOrderFoodCell">
+            <rect key="frame" x="0.0" y="0.0" width="484" height="134"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="484" height="133.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="妈妈的土豆丝" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J8e-XY-YP0">
+                        <rect key="frame" x="80" y="8" width="92" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="精品家常菜十大畅销菜之一" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ltw-pc-365">
+                        <rect key="frame" x="80" y="32" width="160" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="月售998" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tBp-kj-pSd">
+                        <rect key="frame" x="80" y="56" width="52" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="赞998" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NDH-We-WV9">
+                        <rect key="frame" x="140" y="56" width="38" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¥ 9998" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z6v-mH-pD6">
+                        <rect key="frame" x="80" y="92" width="57.5" height="33.5"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                        <color key="textColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_food_loading" translatesAutoresizingMaskIntoConstraints="NO" id="EHq-lQ-4kX">
+                        <rect key="frame" x="8" y="8" width="64" height="64"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="64" id="oOk-nw-kxQ"/>
+                            <constraint firstAttribute="width" constant="64" id="osf-kb-AgB"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="z6v-mH-pD6" firstAttribute="leading" secondItem="tBp-kj-pSd" secondAttribute="leading" id="4Tf-85-okU"/>
+                    <constraint firstAttribute="bottom" secondItem="z6v-mH-pD6" secondAttribute="bottom" constant="8" id="9w6-xz-oZ7"/>
+                    <constraint firstItem="NDH-We-WV9" firstAttribute="leading" secondItem="tBp-kj-pSd" secondAttribute="trailing" constant="8" id="Lxm-Fa-nOi"/>
+                    <constraint firstItem="EHq-lQ-4kX" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="MSA-jp-DLR"/>
+                    <constraint firstItem="z6v-mH-pD6" firstAttribute="top" secondItem="tBp-kj-pSd" secondAttribute="bottom" constant="20" id="RQM-lj-eNZ"/>
+                    <constraint firstItem="J8e-XY-YP0" firstAttribute="leading" secondItem="EHq-lQ-4kX" secondAttribute="trailing" constant="8" id="ZEL-gr-JCE"/>
+                    <constraint firstItem="J8e-XY-YP0" firstAttribute="top" secondItem="EHq-lQ-4kX" secondAttribute="top" id="bCW-sp-ZKM"/>
+                    <constraint firstItem="Ltw-pc-365" firstAttribute="centerY" secondItem="EHq-lQ-4kX" secondAttribute="centerY" id="bNY-KP-hH0"/>
+                    <constraint firstItem="EHq-lQ-4kX" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="d5R-er-8yn"/>
+                    <constraint firstItem="Ltw-pc-365" firstAttribute="leading" secondItem="J8e-XY-YP0" secondAttribute="leading" id="sWr-Vz-KAz"/>
+                    <constraint firstItem="tBp-kj-pSd" firstAttribute="bottom" secondItem="EHq-lQ-4kX" secondAttribute="bottom" id="uMl-ke-jbm"/>
+                    <constraint firstItem="NDH-We-WV9" firstAttribute="centerY" secondItem="tBp-kj-pSd" secondAttribute="centerY" id="ubL-hT-fXp"/>
+                    <constraint firstItem="tBp-kj-pSd" firstAttribute="leading" secondItem="Ltw-pc-365" secondAttribute="leading" id="ux5-yF-LT4"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="descLabel" destination="Ltw-pc-365" id="FQ2-er-6gN"/>
+                <outlet property="min_priceLabel" destination="z6v-mH-pD6" id="fdr-Qs-4EI"/>
+                <outlet property="month_saled_contentLabel" destination="tBp-kj-pSd" id="p1u-f3-76c"/>
+                <outlet property="nameLabel" destination="J8e-XY-YP0" id="xXa-yt-9av"/>
+                <outlet property="pictureView" destination="EHq-lQ-4kX" id="Ek1-Hv-ezt"/>
+                <outlet property="praise_contentLabel" destination="NDH-We-WV9" id="HTI-X1-99j"/>
+            </connections>
+            <point key="canvasLocation" x="130" y="166"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="img_food_loading" width="60" height="60"/>
+    </resources>
+</document>
