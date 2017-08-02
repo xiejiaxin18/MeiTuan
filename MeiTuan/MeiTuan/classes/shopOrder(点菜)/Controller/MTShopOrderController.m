@@ -10,12 +10,16 @@
 #import "MTShopOrderCategoryModel.h"
 #import "MTShopOrderFoodModel.h"
 #import "MTShopOrderCategoryCell.h"
+#import "MTShopOrderFoodHeaderView.h"
 
 //类型表格的重用ID
 static NSString *categoryCellID = @"categoryCellID";
 
 //食物表格的重用ID
 static NSString *foodCellID = @"foodCellID";
+
+//头部视图的重用ID
+static NSString *foodHeaderViewID = @"foodHeaderViewID";
 
 @interface MTShopOrderController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -92,6 +96,12 @@ static NSString *foodCellID = @"foodCellID";
     
     //注册cell
     [foodTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:foodCellID];
+    
+    // 注册头部视图
+    [foodTableView registerClass:[MTShopOrderFoodHeaderView class] forHeaderFooterViewReuseIdentifier:foodHeaderViewID];
+    
+    // 设置每一组的组头统一高度
+    foodTableView.sectionHeaderHeight = 30;
 }
 
 #pragma mark - 实现数据源方法
@@ -147,6 +157,16 @@ static NSString *foodCellID = @"foodCellID";
     cell.textLabel.text = foodModel.name;
     
     return cell;
+}
+
+//返回头部视图
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    
+    MTShopOrderFoodHeaderView *headerView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:foodHeaderViewID];
+    
+    headerView.name = _categoryData[section].name;
+    
+    return headerView;
 }
 
 @end
