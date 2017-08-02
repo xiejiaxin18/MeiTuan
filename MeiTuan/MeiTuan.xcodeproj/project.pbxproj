@@ -69,6 +69,7 @@
 		8AAD6E101F2E09F800D93EC6 /* NSObject+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AAD6E091F2E09F800D93EC6 /* NSObject+Addition.m */; };
 		8AAD6E111F2E09F800D93EC6 /* UIColor+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AAD6E0B1F2E09F800D93EC6 /* UIColor+Addition.m */; };
 		8AAD6E121F2E09F800D93EC6 /* UILabel+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AAD6E0D1F2E09F800D93EC6 /* UILabel+Addition.m */; };
+		8AFA74A91F32033400EC88AA /* MTShopDetailAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AFA74A81F32033400EC88AA /* MTShopDetailAnimator.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -203,6 +204,8 @@
 		8AAD6E0C1F2E09F800D93EC6 /* UILabel+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Addition.h"; sourceTree = "<group>"; };
 		8AAD6E0D1F2E09F800D93EC6 /* UILabel+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Addition.m"; sourceTree = "<group>"; };
 		8AAD6E1A1F2E0ACB00D93EC6 /* Meituan-PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Meituan-PrefixHeader.pch"; path = "../Meituan-PrefixHeader.pch"; sourceTree = "<group>"; };
+		8AFA74A71F32033400EC88AA /* MTShopDetailAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTShopDetailAnimator.h; sourceTree = "<group>"; };
+		8AFA74A81F32033400EC88AA /* MTShopDetailAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTShopDetailAnimator.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -219,6 +222,7 @@
 		8A200FD71F31983E0095A073 /* ShopDetail(商家详情) */ = {
 			isa = PBXGroup;
 			children = (
+				8AFA74A61F3202EE00EC88AA /* other */,
 				8A200FD81F3198520095A073 /* MTShopDetailController.h */,
 				8A200FD91F3198520095A073 /* MTShopDetailController.m */,
 			);
@@ -523,6 +527,15 @@
 			path = SDWebImage;
 			sourceTree = "<group>";
 		};
+		8AFA74A61F3202EE00EC88AA /* other */ = {
+			isa = PBXGroup;
+			children = (
+				8AFA74A71F32033400EC88AA /* MTShopDetailAnimator.h */,
+				8AFA74A81F32033400EC88AA /* MTShopDetailAnimator.m */,
+			);
+			name = other;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -638,6 +651,7 @@
 				8AAD6DF51F2E09F000D93EC6 /* SDImageCacheConfig.m in Sources */,
 				8AA1DE3F1F2F561C000E70FD /* UIImage+DashLine.m in Sources */,
 				8AAD6E0E1F2E09F800D93EC6 /* NSArray+Addition.m in Sources */,
+				8AFA74A91F32033400EC88AA /* MTShopDetailAnimator.m in Sources */,
 				8AAD6E111F2E09F800D93EC6 /* UIColor+Addition.m in Sources */,
 				8AA1DE3C1F2F498A000E70FD /* MTHeadView.m in Sources */,
 				8AAD6DE21F2E09F000D93EC6 /* AFNetworkReachabilityManager.m in Sources */,

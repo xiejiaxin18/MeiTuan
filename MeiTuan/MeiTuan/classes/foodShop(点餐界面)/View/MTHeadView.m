@@ -11,6 +11,7 @@
 #import "MTLoopView.h"
 #import "MTInfoModel.h"
 #import "MTShopDetailController.h"
+#import "MTShopDetailAnimator.h"
 
 @interface MTHeadView ()
 
@@ -29,6 +30,8 @@
 //轮播视图
 @property (nonatomic, weak) MTLoopView *loopView;
 
+//转场动画对象
+@property (nonatomic, strong) MTShopDetailAnimator *animator;
 
 @end
 @implementation MTHeadView
@@ -123,7 +126,7 @@
     
     
     //5.店名
-    UILabel *nameLabel = [UILabel makeLabelWithText:@"粮心发现" andTextFont:16 andTextColor:[UIColor whiteColor]];
+    UILabel *nameLabel = [UILabel makeLabelWithText:@"粮心发现(修正店)" andTextFont:16 andTextColor:[UIColor whiteColor]];
     [self addSubview:nameLabel];
     
     [nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -162,6 +165,15 @@
     
     //传数据
     detailVC.PoInfoModel = _POI_infoModel;
+    
+    //设置控制器view的显示方式
+    detailVC.modalPresentationStyle = UIModalPresentationCustom;
+    
+    //创建动画
+    _animator = [[MTShopDetailAnimator alloc] init];
+
+    //设置转场代理
+    detailVC.transitioningDelegate = _animator;
     
     //模态商家详情控制器
     [self.viewControler presentViewController:detailVC animated:YES completion:nil];
