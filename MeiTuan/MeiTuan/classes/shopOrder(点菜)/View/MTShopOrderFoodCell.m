@@ -8,6 +8,7 @@
 
 #import "MTShopOrderFoodCell.h"
 #import "MTShopOrderFoodModel.h"
+#import "MTShopOrderCountView.h"
 
 @interface MTShopOrderFoodCell ()
 
@@ -29,16 +30,36 @@
 //价格
 @property (weak, nonatomic) IBOutlet UILabel *min_priceLabel;
 
+//约束线
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *liens;
 
-
+//countview
+@property (nonatomic, weak) MTShopOrderCountView *countView;
 
 @end
 @implementation MTShopOrderFoodCell
 
-- (void)awakeFromNib {
+-(void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
+    
+    [self setupUI];
+}
+
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+{
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    if (self) {
+        [self setupUI];
+    }
+    return self;
+}
+
+- (void)setupUI {
+    
+    //创建计算控件
+//    MTShopOrderCountView *countView = [MTShopOrderCountView alloc ]
+    
+    //添加约束
 }
 
 - (void)setFoodModel:(MTShopOrderFoodModel *)foodModel
@@ -66,7 +87,7 @@
     //图片
     [_pictureView sd_setImageWithURL:[NSURL URLWithString:[foodModel.picture stringByDeletingPathExtension]] placeholderImage:[UIImage imageNamed:@"img_food_loading"]];
     
-    
+//    _countView.co = foodModel.count;
 }
 
 @end

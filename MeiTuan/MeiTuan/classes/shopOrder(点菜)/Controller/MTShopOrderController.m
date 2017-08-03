@@ -30,7 +30,8 @@ static NSString *foodHeaderViewID = @"foodHeaderViewID";
 //储存食物属性
 @property (nonatomic, weak) UITableView *foodTableView;
 
-
+//记录是不是手动选中
+@property (nonatomic, assign) BOOL categoryTbaleViewClick;
 @end
 
 @implementation MTShopOrderController
@@ -80,6 +81,9 @@ static NSString *foodHeaderViewID = @"foodHeaderViewID";
     //隐藏分割线
     categoryTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+    //默认选中第0行
+    [categoryTableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
 }
 
 #pragma mark - 食物表格
@@ -183,10 +187,47 @@ static NSString *foodHeaderViewID = @"foodHeaderViewID";
 //设置选中cell就取消
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //判断是不是食物的cell
+    //判断是不是食物表格
     if (_foodTableView == tableView)
     {
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
     }
+    //判断是不是类别表格
+    if (_categoryTableView == tableView)
+    {
+        //用列表表格的所以来当食物表格组的索引的
+        NSIndexPath *scrollIndexPath = [NSIndexPath indexPathForRow:0 inSection:indexPath.row];
+        
+        //让食物列表滚动
+        [_foodTableView scrollToRowAtIndexPath:scrollIndexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
+        
+        //设置是因为手动滚动
+        _categoryTbaleViewClick = YES;
+    }
 }
+
+#pragma mark - 监听滚动
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    //判断是不是foodTbaleView 还有判断是不是手动滚动
+    if (_foodTableView == scrollView && _categoryTbaleViewClick == NO)
+    {
+        //获取当前foodTableView的索引
+        //要是他当前显示的第一个的
+        NSIndexPath *indexPath = [[_foodTableView indexPathsForVisibleRows] firstObject];
+        
+        //创建索引 取他的当前组 因为左边是一个组头
+        NSIndexPath *selectIndexPath = [NSIndexPath indexPathForRow:indexPath.section inSection:0];
+        
+        [_categoryTableView selectRowAtIndexPath:selectIndexPath animated:YES scrollPosition:UITableViewScrollPositionMiddle];
+        
+    }
+}
+
+#pragma mark - 滚动结束的时候让手动滚动为NO
+- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView
+{
+    _categoryTbaleViewClick = NO;
+}
+
 @end

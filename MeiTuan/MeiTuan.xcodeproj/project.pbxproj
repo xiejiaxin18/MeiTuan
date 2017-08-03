@@ -12,6 +12,8 @@
 		8A200FD51F317CEB0095A073 /* MTLoopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A200FD41F317CEB0095A073 /* MTLoopView.m */; };
 		8A200FDA1F3198520095A073 /* MTShopDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A200FD91F3198520095A073 /* MTShopDetailController.m */; };
 		8A200FDD1F319EC10095A073 /* UIView+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A200FDC1F319EC10095A073 /* UIView+Addition.m */; };
+		8A21C60C1F32C57100B82883 /* MTShopOrderCountView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A21C60B1F32C57100B82883 /* MTShopOrderCountView.xib */; };
+		8A21C60F1F32CB5100B82883 /* MTShopOrderCountView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A21C60E1F32CB5100B82883 /* MTShopOrderCountView.m */; };
 		8AA1DE001F2E1F8E000E70FD /* NSObject+LinearFormula.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AA1DDFF1F2E1F8E000E70FD /* NSObject+LinearFormula.m */; };
 		8AA1DE121F2F315E000E70FD /* food.json in Resources */ = {isa = PBXBuildFile; fileRef = 8AA1DE111F2F315E000E70FD /* food.json */; };
 		8AA1DE2B1F2F44DE000E70FD /* MTBaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AA1DE1B1F2F44DE000E70FD /* MTBaseController.m */; };
@@ -89,6 +91,9 @@
 		8A200FD91F3198520095A073 /* MTShopDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTShopDetailController.m; sourceTree = "<group>"; };
 		8A200FDB1F319EC10095A073 /* UIView+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Addition.h"; sourceTree = "<group>"; };
 		8A200FDC1F319EC10095A073 /* UIView+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Addition.m"; sourceTree = "<group>"; };
+		8A21C60B1F32C57100B82883 /* MTShopOrderCountView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MTShopOrderCountView.xib; sourceTree = "<group>"; };
+		8A21C60D1F32CB5100B82883 /* MTShopOrderCountView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTShopOrderCountView.h; sourceTree = "<group>"; };
+		8A21C60E1F32CB5100B82883 /* MTShopOrderCountView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTShopOrderCountView.m; sourceTree = "<group>"; };
 		8AA1DDFE1F2E1F8E000E70FD /* NSObject+LinearFormula.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+LinearFormula.h"; sourceTree = "<group>"; };
 		8AA1DDFF1F2E1F8E000E70FD /* NSObject+LinearFormula.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+LinearFormula.m"; sourceTree = "<group>"; };
 		8AA1DE011F2EE9CA000E70FD /* Additions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Additions.h; sourceTree = "<group>"; };
@@ -609,6 +614,9 @@
 				8AFA74C71F321D4C00EC88AA /* MTShopOrderFoodCell.h */,
 				8AFA74C81F321D4C00EC88AA /* MTShopOrderFoodCell.m */,
 				8AFA74C91F321D4C00EC88AA /* MTShopOrderFoodCell.xib */,
+				8A21C60D1F32CB5100B82883 /* MTShopOrderCountView.h */,
+				8A21C60E1F32CB5100B82883 /* MTShopOrderCountView.m */,
+				8A21C60B1F32C57100B82883 /* MTShopOrderCountView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -673,6 +681,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A21C60C1F32C57100B82883 /* MTShopOrderCountView.xib in Resources */,
 				8AA1DE121F2F315E000E70FD /* food.json in Resources */,
 				8AAD6D801F2E082600D93EC6 /* LaunchScreen.storyboard in Resources */,
 				8AAD6D7D1F2E082600D93EC6 /* Assets.xcassets in Resources */,
@@ -727,6 +736,7 @@
 				8AAD6DF21F2E09F000D93EC6 /* NSData+ImageContentType.m in Sources */,
 				8AFA74CA1F321D4C00EC88AA /* MTShopOrderFoodCell.m in Sources */,
 				8AAD6DF91F2E09F000D93EC6 /* SDWebImageDownloaderOperation.m in Sources */,
+				8A21C60F1F32CB5100B82883 /* MTShopOrderCountView.m in Sources */,
 				8AFA74B81F320F8600EC88AA /* MTShopOrderCategoryModel.m in Sources */,
 				8AAD6DE41F2E09F000D93EC6 /* AFURLRequestSerialization.m in Sources */,
 				8AA1DE2C1F2F44DE000E70FD /* MTNavBar.m in Sources */,

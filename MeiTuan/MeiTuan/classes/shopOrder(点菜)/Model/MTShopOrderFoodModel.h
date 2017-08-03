@@ -28,6 +28,9 @@
 //价格
 @property (nonatomic, assign) float min_price;
 
+//记录当前食物的选购数量
+@property (nonatomic, assign) NSInteger count;
+
 + (instancetype)shopOrderFoodWithDict:(NSDictionary *)dict;
 
 @end

@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -19,13 +18,8 @@
                 <rect key="frame" x="0.0" y="0.0" width="484" height="133.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="妈妈的土豆丝" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J8e-XY-YP0">
-                        <rect key="frame" x="80" y="8" width="92" height="18"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="精品家常菜十大畅销菜之一" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ltw-pc-365">
-                        <rect key="frame" x="80" y="34" width="376" height="16"/>
+                        <rect key="frame" x="82" y="34" width="392" height="16"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
@@ -55,26 +49,30 @@
                             <constraint firstAttribute="width" constant="64" id="osf-kb-AgB"/>
                         </constraints>
                     </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="妈妈的土豆丝" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J8e-XY-YP0">
+                        <rect key="frame" x="80" y="8" width="92" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="z6v-mH-pD6" firstAttribute="leading" secondItem="tBp-kj-pSd" secondAttribute="leading" id="4Tf-85-okU"/>
                     <constraint firstAttribute="bottom" secondItem="z6v-mH-pD6" secondAttribute="bottom" constant="8" id="9w6-xz-oZ7"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="Ltw-pc-365" secondAttribute="trailing" constant="20" id="E17-Cq-fnf"/>
-                    <constraint firstItem="Ltw-pc-365" firstAttribute="top" secondItem="J8e-XY-YP0" secondAttribute="bottom" constant="8" id="FbK-ph-XKk"/>
+                    <constraint firstItem="Ltw-pc-365" firstAttribute="top" secondItem="J8e-XY-YP0" secondAttribute="bottom" constant="8" id="KC0-cZ-IKz"/>
                     <constraint firstItem="NDH-We-WV9" firstAttribute="leading" secondItem="tBp-kj-pSd" secondAttribute="trailing" constant="8" id="Lxm-Fa-nOi"/>
                     <constraint firstItem="EHq-lQ-4kX" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="MSA-jp-DLR"/>
+                    <constraint firstItem="tBp-kj-pSd" firstAttribute="top" secondItem="Ltw-pc-365" secondAttribute="bottom" constant="8" id="YNw-4D-aGZ"/>
                     <constraint firstItem="J8e-XY-YP0" firstAttribute="leading" secondItem="EHq-lQ-4kX" secondAttribute="trailing" constant="8" id="ZEL-gr-JCE"/>
-                    <constraint firstItem="J8e-XY-YP0" firstAttribute="top" secondItem="EHq-lQ-4kX" secondAttribute="top" id="bCW-sp-ZKM"/>
+                    <constraint firstItem="J8e-XY-YP0" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="ceq-HV-1Ia"/>
                     <constraint firstItem="EHq-lQ-4kX" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="d5R-er-8yn"/>
-                    <constraint firstItem="tBp-kj-pSd" firstAttribute="top" secondItem="Ltw-pc-365" secondAttribute="bottom" constant="8" id="nPo-Wl-BKM"/>
+                    <constraint firstAttribute="trailing" secondItem="Ltw-pc-365" secondAttribute="trailing" constant="10" id="e5A-HL-TkK"/>
+                    <constraint firstItem="tBp-kj-pSd" firstAttribute="leading" secondItem="EHq-lQ-4kX" secondAttribute="trailing" constant="8" id="ktj-RF-87a"/>
+                    <constraint firstItem="Ltw-pc-365" firstAttribute="leading" secondItem="EHq-lQ-4kX" secondAttribute="trailing" constant="10" id="m9t-qE-3ib"/>
                     <constraint firstItem="NDH-We-WV9" firstAttribute="bottom" secondItem="tBp-kj-pSd" secondAttribute="bottom" id="pHg-JY-1sQ"/>
-                    <constraint firstItem="Ltw-pc-365" firstAttribute="leading" secondItem="J8e-XY-YP0" secondAttribute="leading" id="sWr-Vz-KAz"/>
-                    <constraint firstItem="tBp-kj-pSd" firstAttribute="leading" secondItem="Ltw-pc-365" secondAttribute="leading" id="ux5-yF-LT4"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="descLabel" destination="Ltw-pc-365" id="FQ2-er-6gN"/>
-                <outlet property="liens" destination="FbK-ph-XKk" id="jD0-74-MfE"/>
                 <outlet property="min_priceLabel" destination="z6v-mH-pD6" id="fdr-Qs-4EI"/>
                 <outlet property="month_saled_contentLabel" destination="tBp-kj-pSd" id="p1u-f3-76c"/>
                 <outlet property="nameLabel" destination="J8e-XY-YP0" id="xXa-yt-9av"/>
