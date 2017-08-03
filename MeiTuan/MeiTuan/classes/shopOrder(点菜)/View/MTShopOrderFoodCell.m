@@ -22,7 +22,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *min_priceLabel;
 
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *descLabelTopConstraint;
+
 
 
 @end
