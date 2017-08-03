@@ -8,22 +8,22 @@
 
 #import <Foundation/Foundation.h>
 
-struct HMValue {
+struct MTValue {
     CGFloat consult;
     CGFloat result;
 };
-typedef struct HMValue HMValue;
+typedef struct MTValue MTValue;
 
 
-CG_INLINE HMValue
+CG_INLINE MTValue
 HMValueMake(CGFloat consult, CGFloat result)
 {
-    HMValue value; value.consult = consult; value.result = result; return value;
+    MTValue value; value.consult = consult; value.result = result; return value;
 }
 
 @interface NSObject (LinearFormula)
 
 
-- (CGFloat)resultWithValue1:(HMValue)value1 andValue2:(HMValue)value2;
+- (CGFloat)resultWithValue1:(MTValue)value1 andValue2:(MTValue)value2;
 
 @end

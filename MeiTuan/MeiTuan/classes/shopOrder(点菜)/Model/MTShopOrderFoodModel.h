@@ -28,6 +28,12 @@
 //价格
 @property (nonatomic, assign) float min_price;
 
+//差评
+@property (nonatomic, assign) CGFloat tread_num;
+
+//好评
+@property (nonatomic, assign) CGFloat praise_num;
+
 //记录当前食物的选购数量
 @property (nonatomic, assign) NSInteger count;
 

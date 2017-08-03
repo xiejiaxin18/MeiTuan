@@ -69,6 +69,9 @@
 		8AAD6E101F2E09F800D93EC6 /* NSObject+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AAD6E091F2E09F800D93EC6 /* NSObject+Addition.m */; };
 		8AAD6E111F2E09F800D93EC6 /* UIColor+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AAD6E0B1F2E09F800D93EC6 /* UIColor+Addition.m */; };
 		8AAD6E121F2E09F800D93EC6 /* UILabel+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AAD6E0D1F2E09F800D93EC6 /* UILabel+Addition.m */; };
+		8AEB35611F331BF0004B4D9D /* MTFoodDetailsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AEB355F1F331BF0004B4D9D /* MTFoodDetailsCell.m */; };
+		8AEB35621F331BF0004B4D9D /* MTFoodDetailsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8AEB35601F331BF0004B4D9D /* MTFoodDetailsCell.xib */; };
+		8AEB35651F333B0D004B4D9D /* MTFoodDetailsFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AEB35641F333B0D004B4D9D /* MTFoodDetailsFlowLayout.m */; };
 		8AFA74A91F32033400EC88AA /* MTShopDetailAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AFA74A81F32033400EC88AA /* MTShopDetailAnimator.m */; };
 		8AFA74AF1F320CA900EC88AA /* MTFoodDetailsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AFA74AC1F320CA900EC88AA /* MTFoodDetailsController.m */; };
 		8AFA74B51F320D0B00EC88AA /* MTShopOrderController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AFA74B21F320D0B00EC88AA /* MTShopOrderController.m */; };
@@ -211,6 +214,11 @@
 		8AAD6E0C1F2E09F800D93EC6 /* UILabel+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Addition.h"; sourceTree = "<group>"; };
 		8AAD6E0D1F2E09F800D93EC6 /* UILabel+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Addition.m"; sourceTree = "<group>"; };
 		8AAD6E1A1F2E0ACB00D93EC6 /* Meituan-PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Meituan-PrefixHeader.pch"; path = "../Meituan-PrefixHeader.pch"; sourceTree = "<group>"; };
+		8AEB355E1F331BF0004B4D9D /* MTFoodDetailsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTFoodDetailsCell.h; sourceTree = "<group>"; };
+		8AEB355F1F331BF0004B4D9D /* MTFoodDetailsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTFoodDetailsCell.m; sourceTree = "<group>"; };
+		8AEB35601F331BF0004B4D9D /* MTFoodDetailsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MTFoodDetailsCell.xib; sourceTree = "<group>"; };
+		8AEB35631F333B0D004B4D9D /* MTFoodDetailsFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTFoodDetailsFlowLayout.h; sourceTree = "<group>"; };
+		8AEB35641F333B0D004B4D9D /* MTFoodDetailsFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTFoodDetailsFlowLayout.m; sourceTree = "<group>"; };
 		8AFA74A71F32033400EC88AA /* MTShopDetailAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTShopDetailAnimator.h; sourceTree = "<group>"; };
 		8AFA74A81F32033400EC88AA /* MTShopDetailAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTShopDetailAnimator.m; sourceTree = "<group>"; };
 		8AFA74AB1F320CA900EC88AA /* MTFoodDetailsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTFoodDetailsController.h; sourceTree = "<group>"; };
@@ -254,6 +262,7 @@
 		8AA1DE131F2F44DE000E70FD /* foodDetails(食物详情) */ = {
 			isa = PBXGroup;
 			children = (
+				8AEB355D1F330177004B4D9D /* Other */,
 				8AFA74AA1F320CA900EC88AA /* Controller */,
 				8AFA74AD1F320CA900EC88AA /* Model */,
 				8AFA74AE1F320CA900EC88AA /* View */,
@@ -552,6 +561,15 @@
 			path = SDWebImage;
 			sourceTree = "<group>";
 		};
+		8AEB355D1F330177004B4D9D /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				8AEB35631F333B0D004B4D9D /* MTFoodDetailsFlowLayout.h */,
+				8AEB35641F333B0D004B4D9D /* MTFoodDetailsFlowLayout.m */,
+			);
+			name = Other;
+			sourceTree = "<group>";
+		};
 		8AFA74A61F3202EE00EC88AA /* other */ = {
 			isa = PBXGroup;
 			children = (
@@ -580,6 +598,9 @@
 		8AFA74AE1F320CA900EC88AA /* View */ = {
 			isa = PBXGroup;
 			children = (
+				8AEB355E1F331BF0004B4D9D /* MTFoodDetailsCell.h */,
+				8AEB355F1F331BF0004B4D9D /* MTFoodDetailsCell.m */,
+				8AEB35601F331BF0004B4D9D /* MTFoodDetailsCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -686,6 +707,7 @@
 				8AAD6D801F2E082600D93EC6 /* LaunchScreen.storyboard in Resources */,
 				8AAD6D7D1F2E082600D93EC6 /* Assets.xcassets in Resources */,
 				8AFA74CB1F321D4C00EC88AA /* MTShopOrderFoodCell.xib in Resources */,
+				8AEB35621F331BF0004B4D9D /* MTFoodDetailsCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -730,6 +752,7 @@
 				8AAD6DEE1F2E09F000D93EC6 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				8A200FD51F317CEB0095A073 /* MTLoopView.m in Sources */,
 				8AAD6DFE1F2E09F000D93EC6 /* UIImage+MultiFormat.m in Sources */,
+				8AEB35611F331BF0004B4D9D /* MTFoodDetailsCell.m in Sources */,
 				8AFA74B51F320D0B00EC88AA /* MTShopOrderController.m in Sources */,
 				8AAD6DF71F2E09F000D93EC6 /* SDWebImageDecoder.m in Sources */,
 				8AAD6DE71F2E09F000D93EC6 /* MASCompositeConstraint.m in Sources */,
@@ -740,6 +763,7 @@
 				8AFA74B81F320F8600EC88AA /* MTShopOrderCategoryModel.m in Sources */,
 				8AAD6DE41F2E09F000D93EC6 /* AFURLRequestSerialization.m in Sources */,
 				8AA1DE2C1F2F44DE000E70FD /* MTNavBar.m in Sources */,
+				8AEB35651F333B0D004B4D9D /* MTFoodDetailsFlowLayout.m in Sources */,
 				8AAD6DF51F2E09F000D93EC6 /* SDImageCacheConfig.m in Sources */,
 				8AA1DE3F1F2F561C000E70FD /* UIImage+DashLine.m in Sources */,
 				8AAD6E0E1F2E09F800D93EC6 /* NSArray+Addition.m in Sources */,

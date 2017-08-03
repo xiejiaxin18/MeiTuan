@@ -11,7 +11,7 @@
 @implementation NSObject (LinearFormula)
 
 
-- (CGFloat)resultWithValue1:(HMValue)value1 andValue2:(HMValue)value2 {
+- (CGFloat)resultWithValue1:(MTValue)value1 andValue2:(MTValue)value2 {
     CGFloat a = (value1.result - value2.result) / (value1.consult - value2.consult);
     CGFloat b = value1.result - (a * value1.consult);
     

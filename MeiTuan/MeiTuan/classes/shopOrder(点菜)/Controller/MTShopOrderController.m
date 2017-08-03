@@ -197,6 +197,9 @@ static NSString *foodHeaderViewID = @"foodHeaderViewID";
         //创建食物详情控制器
         MTFoodDetailsController *foodDeatilVC = [[MTFoodDetailsController alloc] init];
         
+        //传数据
+        foodDeatilVC.foodData = _categoryData;
+        
         //跳转
         [self.navigationController pushViewController:foodDeatilVC animated:YES];
         
