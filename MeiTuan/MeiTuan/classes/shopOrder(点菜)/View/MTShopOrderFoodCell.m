@@ -57,9 +57,18 @@
 - (void)setupUI {
     
     //创建计算控件
-//    MTShopOrderCountView *countView = [MTShopOrderCountView alloc ]
+    MTShopOrderCountView *countView = [MTShopOrderCountView shopOrderCountView];
     
     //添加约束
+    [self.contentView addSubview:countView];
+    
+    
+    [countView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.right.offset(-8);
+        make.size.mas_offset(countView.bounds.size);
+    }];
+    
+    _countView = countView;
 }
 
 - (void)setFoodModel:(MTShopOrderFoodModel *)foodModel
@@ -87,7 +96,8 @@
     //图片
     [_pictureView sd_setImageWithURL:[NSURL URLWithString:[foodModel.picture stringByDeletingPathExtension]] placeholderImage:[UIImage imageNamed:@"img_food_loading"]];
     
-//    _countView.co = foodModel.count;
+    //把模型传过去
+    _countView.foodModel = foodModel;
 }
 
 @end

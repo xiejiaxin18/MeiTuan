@@ -13,4 +13,7 @@
 @interface MTShopOrderCountView : UIView
 
 @property (nonatomic, strong) MTShopOrderFoodModel *foodModel;
+
++ (instancetype)shopOrderCountView;
+
 @end
