@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+@class MTShopOrderFoodModel;
 
 @interface MTShopOrderFoodCell : UITableViewCell
+
+//定义属性接收模型数据
+@property (nonatomic, strong) MTShopOrderFoodModel *foodModel;
 
 @end

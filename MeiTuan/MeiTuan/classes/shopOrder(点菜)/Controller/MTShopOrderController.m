@@ -11,6 +11,7 @@
 #import "MTShopOrderFoodModel.h"
 #import "MTShopOrderCategoryCell.h"
 #import "MTShopOrderFoodHeaderView.h"
+#import "MTShopOrderFoodCell.h"
 
 //类型表格的重用ID
 static NSString *categoryCellID = @"categoryCellID";
@@ -25,6 +26,10 @@ static NSString *foodHeaderViewID = @"foodHeaderViewID";
 
 //创建属性储存类型表格
 @property (nonatomic, weak) UITableView *categoryTableView;
+
+//储存食物属性
+@property (nonatomic, weak) UITableView *foodTableView;
+
 
 @end
 
@@ -103,6 +108,11 @@ static NSString *foodHeaderViewID = @"foodHeaderViewID";
     
     // 设置每一组的组头统一高度
     foodTableView.sectionHeaderHeight = 30;
+    
+    // 设置预估行高
+    foodTableView.estimatedRowHeight = 150;
+    
+    _foodTableView = foodTableView;
 }
 
 #pragma mark - 实现数据源方法
@@ -148,14 +158,14 @@ static NSString *foodHeaderViewID = @"foodHeaderViewID";
         
     }
 
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:foodCellID forIndexPath:indexPath];
+    MTShopOrderFoodCell *cell = [tableView dequeueReusableCellWithIdentifier:foodCellID forIndexPath:indexPath];
     //先取出类别模型
     MTShopOrderCategoryModel *categoryModel = _categoryData[indexPath.section];
     
     //取出食物一个模型
     MTShopOrderFoodModel *foodModel = categoryModel.spus[indexPath.row];
     
-    cell.textLabel.text = foodModel.name;
+    cell.foodModel = foodModel;
     
     return cell;
 }
@@ -170,4 +180,13 @@ static NSString *foodHeaderViewID = @"foodHeaderViewID";
     return headerView;
 }
 
+//设置选中cell就取消
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    //判断是不是食物的cell
+    if (_foodTableView == tableView)
+    {
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    }
+}
 @end
