@@ -12,6 +12,7 @@
 #import "MTShopOrderCategoryCell.h"
 #import "MTShopOrderFoodHeaderView.h"
 #import "MTShopOrderFoodCell.h"
+#import "MTFoodDetailsController.h"
 
 //类型表格的重用ID
 static NSString *categoryCellID = @"categoryCellID";
@@ -184,13 +185,21 @@ static NSString *foodHeaderViewID = @"foodHeaderViewID";
     return headerView;
 }
 
-//设置选中cell就取消
+#pragma mark - 选中cell就会调用
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     //判断是不是食物表格
     if (_foodTableView == tableView)
     {
+        //取消选中
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
+        
+        //创建食物详情控制器
+        MTFoodDetailsController *foodDeatilVC = [[MTFoodDetailsController alloc] init];
+        
+        //跳转
+        [self.navigationController pushViewController:foodDeatilVC animated:YES];
+        
     }
     //判断是不是类别表格
     if (_categoryTableView == tableView)
