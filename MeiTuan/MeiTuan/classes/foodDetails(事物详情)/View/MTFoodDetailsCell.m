@@ -34,6 +34,12 @@
 //滚动条
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
+//商品信息
+@property (weak, nonatomic) IBOutlet UILabel *shopInfoLabel;
+
+//商品评价的顶部约束
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *shopCommentTopConstraint;
+
 @end
 @implementation MTFoodDetailsCell
 
@@ -56,6 +62,15 @@
     
     //详情
     _descLabel.text = foodModel.desc;
+    
+    //没有食物详情就隐藏商品信息label
+    
+    BOOL isDescContent =[foodModel.desc stringByReplacingOccurrencesOfString:@" " withString:@""].length;
+    
+    _shopInfoLabel.hidden = !isDescContent;
+    
+    //更改约束
+    _shopCommentTopConstraint.constant = (isDescContent == YES) ? 8 : -24;
     
     //好评率
     //计算

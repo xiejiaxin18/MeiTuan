@@ -161,6 +161,8 @@
                 <outlet property="pictureView" destination="fSp-Ky-Bg6" id="cjw-Lz-W9R"/>
                 <outlet property="progressView" destination="BcH-lp-19d" id="yGG-fZ-E5y"/>
                 <outlet property="scrollView" destination="Mh3-ld-5oj" id="Cfb-hs-nsK"/>
+                <outlet property="shopCommentTopConstraint" destination="g4r-1O-yJt" id="DXc-vS-1GB"/>
+                <outlet property="shopInfoLabel" destination="cdT-NR-zt8" id="b4L-rO-O0W"/>
             </connections>
             <point key="canvasLocation" x="27.5" y="75.5"/>
         </collectionViewCell>
