@@ -16,7 +16,7 @@ typedef struct MTValue MTValue;
 
 
 CG_INLINE MTValue
-HMValueMake(CGFloat consult, CGFloat result)
+MTValueMake(CGFloat consult, CGFloat result)
 {
     MTValue value; value.consult = consult; value.result = result; return value;
 }

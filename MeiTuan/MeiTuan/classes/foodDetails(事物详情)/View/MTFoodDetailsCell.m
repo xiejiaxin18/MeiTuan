@@ -9,7 +9,7 @@
 #import "MTFoodDetailsCell.h"
 #import "MTShopOrderFoodModel.h"
 
-@interface MTFoodDetailsCell ()
+@interface MTFoodDetailsCell ()<UIScrollViewDelegate>
 //配图
 @property (weak, nonatomic) IBOutlet UIImageView *pictureView;
 
@@ -30,6 +30,9 @@
 
 //好评条
 @property (weak, nonatomic) IBOutlet UIProgressView *progressView;
+
+//滚动条
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @end
 @implementation MTFoodDetailsCell
@@ -64,5 +67,38 @@
 
     //进度
     _progressView.progress = percentage;
+    
+    _scrollView.delegate = self;
 }
+#pragma mark - 监听滚动
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    //获取滚动的距离
+    CGFloat offsety = scrollView.contentOffset.y;
+    
+    //判断是不是向下拖拽
+    if (offsety < 0)
+    {
+        //计算 移动的比例
+        CGFloat scale = [@(offsety) resultWithValue1:MTValueMake(0, 1) andValue2:MTValueMake(-240, 2)];
+        
+        //创建原始移动值
+        CGAffineTransform transform = CGAffineTransformIdentity;
+        
+        //先平移
+        transform = CGAffineTransformTranslate(transform, 0, offsety* 0.5);
+        
+        //在缩放
+        transform = CGAffineTransformScale(transform, scale, scale);
+        
+        
+        _pictureView.transform = transform;
+    }
+    else
+    {
+    _pictureView.transform = CGAffineTransformIdentity;
+    }
+    
+}
+
 @end

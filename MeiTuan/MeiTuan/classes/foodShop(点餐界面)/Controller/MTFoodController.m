@@ -315,7 +315,7 @@
     
     //计算他的当前返回然后设置透明度
     // 计算导航条背景图片的透明度
-    CGFloat alpha = [@(headViewHeight)resultWithValue1:HMValueMake(64, 1) andValue2:HMValueMake(180, 0)];
+    CGFloat alpha = [@(headViewHeight)resultWithValue1:MTValueMake(64, 1) andValue2:MTValueMake(180, 0)];
     
     self.navBar.barImageView.alpha = alpha;
     
@@ -323,7 +323,7 @@
     self.navBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor colorWithWhite:0.4 alpha:alpha]};
     
     // 计算分享按钮的白色值
-    CGFloat White = [@(headViewHeight) resultWithValue1:HMValueMake(64, 0.4) andValue2:HMValueMake(180, 1)];
+    CGFloat White = [@(headViewHeight) resultWithValue1:MTValueMake(64, 0.4) andValue2:MTValueMake(180, 1)];
     
     // 设置分类按钮的颜色
     self.navBar.tintColor = [UIColor colorWithWhite:White alpha:1];

@@ -160,6 +160,7 @@
                 <outlet property="percentageLabel" destination="W2z-tk-dnO" id="zlj-o4-G7S"/>
                 <outlet property="pictureView" destination="fSp-Ky-Bg6" id="cjw-Lz-W9R"/>
                 <outlet property="progressView" destination="BcH-lp-19d" id="yGG-fZ-E5y"/>
+                <outlet property="scrollView" destination="Mh3-ld-5oj" id="Cfb-hs-nsK"/>
             </connections>
             <point key="canvasLocation" x="27.5" y="75.5"/>
         </collectionViewCell>
