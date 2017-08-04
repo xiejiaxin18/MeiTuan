@@ -15,4 +15,7 @@
 //所有的食物数据
 @property (nonatomic, strong) NSArray <MTShopOrderCategoryModel *> *foodData;
 
+//索引
+@property (nonatomic, strong) NSIndexPath *indexPath;
+
 @end

@@ -70,8 +70,16 @@ static NSString *foodDetailsCellID = @"foodDetailsCellID";
     
     UINib *nib = [UINib nibWithNibName:@"MTFoodDetailsCell" bundle:nil];
     [collectionView registerNib:nib forCellWithReuseIdentifier:foodDetailsCellID];
-
+    
     collectionView.backgroundColor = [UIColor whiteColor];
+    
+    //一开始就滚动到指定位置
+    //延迟
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        //滚动到指定位置
+        [collectionView scrollToItemAtIndexPath:_indexPath atScrollPosition:UICollectionViewScrollPositionLeft animated:NO];
+    });
+    
 }
 
 #pragma mark - 数据源方法

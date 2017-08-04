@@ -200,6 +200,9 @@ static NSString *foodHeaderViewID = @"foodHeaderViewID";
         //传数据
         foodDeatilVC.foodData = _categoryData;
         
+        //把索引传过去
+        foodDeatilVC.indexPath = indexPath;
+        
         //跳转
         [self.navigationController pushViewController:foodDeatilVC animated:YES];
         
