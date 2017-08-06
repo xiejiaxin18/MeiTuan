@@ -51,6 +51,8 @@ static NSString *foodHeaderViewID = @"foodHeaderViewID";
     
     //食物表格
     [self settingFoodTableView];
+    
+    self.tableViewArr = @[_categoryTableView,_foodTableView];
 }
 
 #pragma mark - 类型表格

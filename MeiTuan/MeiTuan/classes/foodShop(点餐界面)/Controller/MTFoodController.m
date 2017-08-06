@@ -21,7 +21,7 @@
 #define KHeadViewMinHeight 64
 
 
-@interface MTFoodController ()<UIScrollViewDelegate>
+@interface MTFoodController ()<UIScrollViewDelegate,UIGestureRecognizerDelegate>
 
 //头部view
 @property (nonatomic, weak) MTHeadView *headView;
@@ -41,12 +41,14 @@
 //滚动视图
 @property (nonatomic, weak) UIScrollView *scrollView;
 
-/// 头部模型数据
+//头部模型数据
 @property (nonatomic, strong) MTPOI_infoModel *POI_infoModel;
 
-/// 保存所有食物模型
+//保存所有食物模型
 @property (nonatomic, strong) NSArray *categoryData;
 
+//保存点菜的两个tableview
+@property (nonatomic, strong) NSArray *tableViewArr;
 @end
 
 @implementation MTFoodController
@@ -201,6 +203,8 @@
     scrollView.bounces = NO;
     scrollView.pagingEnabled = YES;
     
+    
+    
     //添加约束
     [scrollView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.tagView.mas_bottom).offset(0);
@@ -212,6 +216,10 @@
     
     //传数据
     odvc.categoryData = _categoryData;
+    odvc.view.backgroundColor = [UIColor whiteColor];
+    
+    //把表格view的数据传过去
+    _tableViewArr = odvc.tableViewArr;
     
     MTShopComment *scvc = [[MTShopComment alloc] init];
     MTShopInfoController *ifvc = [[MTShopInfoController alloc] init];
@@ -281,37 +289,93 @@
     //添加平移手势
     UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panGesture:)];
     
+    pan.delegate = self;
     [self.view addGestureRecognizer:pan];
-
+    
 }
 #pragma mark - 平移手势
 - (void)panGesture:(UIPanGestureRecognizer *)pan
 {
+    if (_scrollView.isDragging == YES)
+    {
+        return; //如果在滚动就直接跳出
+    }
+    
+    //判断两个食物表格当前的offset.y是否小于0 .小于0 就让他什么都不做;
+    for (UITableView *tableView in self.tableViewArr)
+    {
+        if (tableView.contentOffset.y < 0) {
+            return;
+        };
+    }
+    
     //获取移动后的点
     CGPoint p = [pan translationInView:pan.view];
     
     //定义一个变量储存高度
     CGFloat headViewHeight = _headView.bounds.size.height;
     
-    //设置约束  是更新约束!
-    [_headView mas_updateConstraints:^(MASConstraintMaker *make)
-     {
-        //添加判断
-        if (p.y + headViewHeight <= KHeadViewMinHeight) // 如果它移动后悔小于这个最小高度
+    //判断他是不是在开始或者拖动
+    switch (pan.state)
+    {
+        case UIGestureRecognizerStateBegan:
+        case UIGestureRecognizerStateChanged:
+            
+            
+            //设置约束  是更新约束!
+            [_headView mas_updateConstraints:^(MASConstraintMaker *make)
+             {
+                 //添加判断
+                 if (p.y + headViewHeight <= KHeadViewMinHeight) // 如果它移动后悔小于这个最小高度
+                 {
+                     //就让他等于最小高度
+                     make.height.offset(KHeadViewMinHeight);
+                 }
+                 else if (p.y + headViewHeight >= KHeadViewMaxHeight) //如果它移动后大于这个最大高度
+                 {
+                     make.height.offset(KHeadViewMaxHeight);
+                 }
+                 else
+                 {
+                     make.height.offset(p.y + headViewHeight);
+                 }
+                 
+             }];
+            break;
+            //判断他是不是结束或者失效或者不能按
+            case UIGestureRecognizerStateEnded:
+        case UIGestureRecognizerStateFailed:
+        case UIGestureRecognizerStateCancelled:
         {
-            //就让他等于最小高度
-            make.height.offset(KHeadViewMinHeight);
+            //判断是不是过一半,过一半让他为180 .如果不过就64
+            CGFloat shopHeaderMiddleHeight = (KHeadViewMaxHeight - KHeadViewMinHeight) * 0.5 + KHeadViewMinHeight;
+            
+            //更新高度约束
+            [_headView mas_updateConstraints:^(MASConstraintMaker *make) {
+                if(self.headView.bounds.size.height > shopHeaderMiddleHeight)
+                {
+                    make.height.offset(KHeadViewMaxHeight);
+                }
+                else
+                {
+                    make.height.offset(KHeadViewMinHeight);
+                }
+            }];
+            
+            //动画更新约束
+            [UIView animateWithDuration:0.5 animations:^{
+                [self.view layoutIfNeeded];
+            }];
+        
         }
-        else if (p.y + headViewHeight >= KHeadViewMaxHeight) //如果它移动后大于这个最大高度
-        {
-            make.height.offset(KHeadViewMaxHeight);
-        }
-        else
-        {
-            make.height.offset(p.y + headViewHeight);
-        }
-
-    }];
+            
+            break;
+        default:
+            break;
+    }
+    
+    //headViewHeigh获取最新高度
+    headViewHeight = _headView.bounds.size.height;
     
     //计算他的当前返回然后设置透明度
     // 计算导航条背景图片的透明度
@@ -419,4 +483,9 @@
     _categoryData = categoryArrM;
 }
 
+#pragma mark - 支持多手势
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
+{
+    return YES;
+}
 @end

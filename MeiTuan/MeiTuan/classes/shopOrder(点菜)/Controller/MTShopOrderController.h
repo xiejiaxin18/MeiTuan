@@ -14,4 +14,6 @@
 //模型数据
 @property (nonatomic, strong) NSArray<MTShopOrderCategoryModel *> *categoryData;
 
+//表格视图的数组
+@property (nonatomic, strong) NSArray *tableViewArr;
 @end

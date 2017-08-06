@@ -249,6 +249,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8A1EC2081F35597200FEBEDC /* ShopCar(购物车) */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "ShopCar(购物车)";
+			path = ShopCar;
+			sourceTree = "<group>";
+		};
 		8A200FD71F31983E0095A073 /* ShopDetail(商家详情) */ = {
 			isa = PBXGroup;
 			children = (
@@ -297,8 +305,8 @@
 		8AA1DE201F2F44DE000E70FD /* ShopComment(评价) */ = {
 			isa = PBXGroup;
 			children = (
-				8AA1DE211F2F44DE000E70FD /* MTShopComment.h */,
 				8AA1DE221F2F44DE000E70FD /* MTShopComment.m */,
+				8AA1DE211F2F44DE000E70FD /* MTShopComment.h */,
 			);
 			path = "ShopComment(评价)";
 			sourceTree = "<group>";
@@ -405,6 +413,7 @@
 		8AAD6D871F2E08F100D93EC6 /* classes */ = {
 			isa = PBXGroup;
 			children = (
+				8A1EC2081F35597200FEBEDC /* ShopCar(购物车) */,
 				8AA1DE131F2F44DE000E70FD /* foodDetails(食物详情) */,
 				8AA1DE261F2F44DE000E70FD /* shopOrder(点菜) */,
 				8A200FD71F31983E0095A073 /* ShopDetail(商家详情) */,
