@@ -13,6 +13,9 @@
 #import "MTShopOrderFoodHeaderView.h"
 #import "MTShopOrderFoodCell.h"
 #import "MTFoodDetailsController.h"
+#import "MTShopCarModel.h"
+#import "MTShopCarView.h"
+#import "MTShopOrderCountView.h"
 
 //类型表格的重用ID
 static NSString *categoryCellID = @"categoryCellID";
@@ -23,7 +26,7 @@ static NSString *foodCellID = @"foodCellID";
 //头部视图的重用ID
 static NSString *foodHeaderViewID = @"foodHeaderViewID";
 
-@interface MTShopOrderController ()<UITableViewDelegate, UITableViewDataSource>
+@interface MTShopOrderController ()<UITableViewDelegate, UITableViewDataSource,MTShopOrderCountViewDelegate>
 
 //创建属性储存类型表格
 @property (nonatomic, weak) UITableView *categoryTableView;
@@ -33,6 +36,13 @@ static NSString *foodHeaderViewID = @"foodHeaderViewID";
 
 //记录是不是手动选中
 @property (nonatomic, assign) BOOL categoryTbaleViewClick;
+
+//购物车
+@property (nonatomic, weak) MTShopCarView *shopCarView;
+
+//购物车模型
+@property (nonatomic, strong) MTShopCarModel *shopCarModel;
+
 @end
 
 @implementation MTShopOrderController
@@ -46,6 +56,9 @@ static NSString *foodHeaderViewID = @"foodHeaderViewID";
 #pragma mark - 搭建界面
 - (void)setupUI
 {
+    //创建购物车  // 添加购物车
+    [self settingShopCarView];
+    
     //类型表格
     [self settingCategoryTableView];
     
@@ -53,6 +66,22 @@ static NSString *foodHeaderViewID = @"foodHeaderViewID";
     [self settingFoodTableView];
     
     self.tableViewArr = @[_categoryTableView,_foodTableView];
+    
+    //把购物车 移动到最顶层
+    [self.view bringSubviewToFront:_shopCarView];
+}
+#pragma mark - 添加购物车
+- (void)settingShopCarView {
+    
+    MTShopCarView *shopCarView = [MTShopCarView shopCarView];
+    [self.view addSubview:shopCarView];
+    
+    [shopCarView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.bottom.right.offset(0);
+        make.height.offset(shopCarView.bounds.size.height);
+    }];
+    
+    _shopCarView = shopCarView;
 }
 
 #pragma mark - 类型表格
@@ -173,6 +202,7 @@ static NSString *foodHeaderViewID = @"foodHeaderViewID";
     MTShopOrderFoodModel *foodModel = categoryModel.spus[indexPath.row];
     
     cell.foodModel = foodModel;
+    cell.countView.delegate = self;
     
     return cell;
 }
@@ -247,4 +277,47 @@ static NSString *foodHeaderViewID = @"foodHeaderViewID";
     _categoryTbaleViewClick = NO;
 }
 
+#pragma mark - 实现购物车的协议
+- (void)shopOrderCountViewValueChange:(MTShopOrderCountView *)countView {
+    
+    switch (countView.type)
+    {
+        case MTShopOrderCountViewBtnTypeAdd:
+            
+            NSLog(@"多选了一个食物");
+            //选购一个食物就把这个食物添加到数组
+            [self.shopCarModel.foodModelArray addObject:countView.foodModel];
+            
+            // 转换控件坐标系时,以它的直接父控件调用此方法 第一个参数传入要转换的控件位置 第二个参数传数要以那个控件的左上角为原点
+            CGPoint startPoint = [countView convertPoint:countView.addBtn.center toView:_shopCarView];
+            
+            
+            // 传入一个起点执行动画
+            [self.shopCarView animWithStartPoint:startPoint];
+            
+            break;
+        case MTShopOrderCountViewBtnTypeMinus:
+            
+            
+            // 删除数组中指定索引的对象,一次只会删除一个
+            [self.shopCarModel.foodModelArray removeObjectAtIndex:[self.shopCarModel.foodModelArray indexOfObject:countView.foodModel]];
+            
+            break;
+            
+        default:
+            break;
+    }
+    
+    // 把购物车模型传给购物车视图
+    _shopCarView.shopCarModel = self.shopCarModel;
+}
+
+
+#pragma mark - 懒加载的方法实例化购物车模型
+- (MTShopCarModel *)shopCarModel {
+    if (_shopCarModel == nil) {
+        _shopCarModel = [[MTShopCarModel alloc] init];
+    }
+    return _shopCarModel;
+}
 @end

@@ -52,6 +52,12 @@
     _foodModel.count--;
     
     [self updateState];
+    
+    _type = MTShopOrderCountViewBtnTypeMinus;
+    
+    if ([self.delegate respondsToSelector:@selector(shopOrderCountViewValueChange:)]) {
+        [self.delegate shopOrderCountViewValueChange:self];
+    }
 }
 
 #pragma mark - 加号
@@ -59,6 +65,11 @@
     _foodModel.count++;
     
     [self updateState];
+    _type = MTShopOrderCountViewBtnTypeAdd;
+    
+    if ([self.delegate respondsToSelector:@selector(shopOrderCountViewValueChange:)]) {
+        [self.delegate shopOrderCountViewValueChange:self];
+    }
 }
 
 

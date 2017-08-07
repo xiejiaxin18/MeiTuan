@@ -8,10 +8,13 @@
 
 #import <UIKit/UIKit.h>
 @class MTShopOrderFoodModel;
+@class MTShopOrderCountView;
 
 @interface MTShopOrderFoodCell : UITableViewCell
 
 //定义属性接收模型数据
 @property (nonatomic, strong) MTShopOrderFoodModel *foodModel;
 
+//countview
+@property (nonatomic, weak) MTShopOrderCountView *countView;
 @end

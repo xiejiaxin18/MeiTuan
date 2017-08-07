@@ -14,6 +14,10 @@
 		8A200FDD1F319EC10095A073 /* UIView+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A200FDC1F319EC10095A073 /* UIView+Addition.m */; };
 		8A21C60C1F32C57100B82883 /* MTShopOrderCountView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A21C60B1F32C57100B82883 /* MTShopOrderCountView.xib */; };
 		8A21C60F1F32CB5100B82883 /* MTShopOrderCountView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A21C60E1F32CB5100B82883 /* MTShopOrderCountView.m */; };
+		8A8197E21F38887D00F4BB02 /* MTFoodDetailsFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A8197E11F38887D00F4BB02 /* MTFoodDetailsFlowLayout.m */; };
+		8A8197E71F389E1900F4BB02 /* MTShopCarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A8197E61F389E1900F4BB02 /* MTShopCarView.xib */; };
+		8A8197EA1F389ED000F4BB02 /* MTShopCarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A8197E91F389ED000F4BB02 /* MTShopCarView.m */; };
+		8A8197ED1F389EF800F4BB02 /* MTShopCarModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A8197EC1F389EF800F4BB02 /* MTShopCarModel.m */; };
 		8AA1DE001F2E1F8E000E70FD /* NSObject+LinearFormula.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AA1DDFF1F2E1F8E000E70FD /* NSObject+LinearFormula.m */; };
 		8AA1DE121F2F315E000E70FD /* food.json in Resources */ = {isa = PBXBuildFile; fileRef = 8AA1DE111F2F315E000E70FD /* food.json */; };
 		8AA1DE2B1F2F44DE000E70FD /* MTBaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AA1DE1B1F2F44DE000E70FD /* MTBaseController.m */; };
@@ -71,7 +75,6 @@
 		8AAD6E121F2E09F800D93EC6 /* UILabel+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AAD6E0D1F2E09F800D93EC6 /* UILabel+Addition.m */; };
 		8AEB35611F331BF0004B4D9D /* MTFoodDetailsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AEB355F1F331BF0004B4D9D /* MTFoodDetailsCell.m */; };
 		8AEB35621F331BF0004B4D9D /* MTFoodDetailsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8AEB35601F331BF0004B4D9D /* MTFoodDetailsCell.xib */; };
-		8AEB35651F333B0D004B4D9D /* MTFoodDetailsFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AEB35641F333B0D004B4D9D /* MTFoodDetailsFlowLayout.m */; };
 		8AFA74A91F32033400EC88AA /* MTShopDetailAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AFA74A81F32033400EC88AA /* MTShopDetailAnimator.m */; };
 		8AFA74AF1F320CA900EC88AA /* MTFoodDetailsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AFA74AC1F320CA900EC88AA /* MTFoodDetailsController.m */; };
 		8AFA74B51F320D0B00EC88AA /* MTShopOrderController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AFA74B21F320D0B00EC88AA /* MTShopOrderController.m */; };
@@ -97,6 +100,13 @@
 		8A21C60B1F32C57100B82883 /* MTShopOrderCountView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MTShopOrderCountView.xib; sourceTree = "<group>"; };
 		8A21C60D1F32CB5100B82883 /* MTShopOrderCountView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTShopOrderCountView.h; sourceTree = "<group>"; };
 		8A21C60E1F32CB5100B82883 /* MTShopOrderCountView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTShopOrderCountView.m; sourceTree = "<group>"; };
+		8A8197E01F38887D00F4BB02 /* MTFoodDetailsFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTFoodDetailsFlowLayout.h; sourceTree = "<group>"; };
+		8A8197E11F38887D00F4BB02 /* MTFoodDetailsFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTFoodDetailsFlowLayout.m; sourceTree = "<group>"; };
+		8A8197E61F389E1900F4BB02 /* MTShopCarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MTShopCarView.xib; sourceTree = "<group>"; };
+		8A8197E81F389ED000F4BB02 /* MTShopCarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTShopCarView.h; sourceTree = "<group>"; };
+		8A8197E91F389ED000F4BB02 /* MTShopCarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTShopCarView.m; sourceTree = "<group>"; };
+		8A8197EB1F389EF800F4BB02 /* MTShopCarModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTShopCarModel.h; sourceTree = "<group>"; };
+		8A8197EC1F389EF800F4BB02 /* MTShopCarModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTShopCarModel.m; sourceTree = "<group>"; };
 		8AA1DDFE1F2E1F8E000E70FD /* NSObject+LinearFormula.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+LinearFormula.h"; sourceTree = "<group>"; };
 		8AA1DDFF1F2E1F8E000E70FD /* NSObject+LinearFormula.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+LinearFormula.m"; sourceTree = "<group>"; };
 		8AA1DE011F2EE9CA000E70FD /* Additions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Additions.h; sourceTree = "<group>"; };
@@ -217,8 +227,6 @@
 		8AEB355E1F331BF0004B4D9D /* MTFoodDetailsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTFoodDetailsCell.h; sourceTree = "<group>"; };
 		8AEB355F1F331BF0004B4D9D /* MTFoodDetailsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTFoodDetailsCell.m; sourceTree = "<group>"; };
 		8AEB35601F331BF0004B4D9D /* MTFoodDetailsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MTFoodDetailsCell.xib; sourceTree = "<group>"; };
-		8AEB35631F333B0D004B4D9D /* MTFoodDetailsFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTFoodDetailsFlowLayout.h; sourceTree = "<group>"; };
-		8AEB35641F333B0D004B4D9D /* MTFoodDetailsFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTFoodDetailsFlowLayout.m; sourceTree = "<group>"; };
 		8AFA74A71F32033400EC88AA /* MTShopDetailAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTShopDetailAnimator.h; sourceTree = "<group>"; };
 		8AFA74A81F32033400EC88AA /* MTShopDetailAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTShopDetailAnimator.m; sourceTree = "<group>"; };
 		8AFA74AB1F320CA900EC88AA /* MTFoodDetailsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTFoodDetailsController.h; sourceTree = "<group>"; };
@@ -252,6 +260,9 @@
 		8A1EC2081F35597200FEBEDC /* ShopCar(购物车) */ = {
 			isa = PBXGroup;
 			children = (
+				8A8197E31F389E0700F4BB02 /* Controller */,
+				8A8197E41F389E0700F4BB02 /* Modal */,
+				8A8197E51F389E0700F4BB02 /* View */,
 			);
 			name = "ShopCar(购物车)";
 			path = ShopCar;
@@ -267,10 +278,45 @@
 			path = "ShopDetail(商家详情)";
 			sourceTree = "<group>";
 		};
+		8A8197DF1F38887D00F4BB02 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				8A8197E01F38887D00F4BB02 /* MTFoodDetailsFlowLayout.h */,
+				8A8197E11F38887D00F4BB02 /* MTFoodDetailsFlowLayout.m */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		8A8197E31F389E0700F4BB02 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		8A8197E41F389E0700F4BB02 /* Modal */ = {
+			isa = PBXGroup;
+			children = (
+				8A8197EB1F389EF800F4BB02 /* MTShopCarModel.h */,
+				8A8197EC1F389EF800F4BB02 /* MTShopCarModel.m */,
+			);
+			path = Modal;
+			sourceTree = "<group>";
+		};
+		8A8197E51F389E0700F4BB02 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8A8197E61F389E1900F4BB02 /* MTShopCarView.xib */,
+				8A8197E81F389ED000F4BB02 /* MTShopCarView.h */,
+				8A8197E91F389ED000F4BB02 /* MTShopCarView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		8AA1DE131F2F44DE000E70FD /* foodDetails(食物详情) */ = {
 			isa = PBXGroup;
 			children = (
-				8AEB355D1F330177004B4D9D /* Other */,
+				8A8197DF1F38887D00F4BB02 /* Other */,
 				8AFA74AA1F320CA900EC88AA /* Controller */,
 				8AFA74AD1F320CA900EC88AA /* Model */,
 				8AFA74AE1F320CA900EC88AA /* View */,
@@ -570,15 +616,6 @@
 			path = SDWebImage;
 			sourceTree = "<group>";
 		};
-		8AEB355D1F330177004B4D9D /* Other */ = {
-			isa = PBXGroup;
-			children = (
-				8AEB35631F333B0D004B4D9D /* MTFoodDetailsFlowLayout.h */,
-				8AEB35641F333B0D004B4D9D /* MTFoodDetailsFlowLayout.m */,
-			);
-			name = Other;
-			sourceTree = "<group>";
-		};
 		8AFA74A61F3202EE00EC88AA /* other */ = {
 			isa = PBXGroup;
 			children = (
@@ -716,6 +753,7 @@
 				8AAD6D801F2E082600D93EC6 /* LaunchScreen.storyboard in Resources */,
 				8AAD6D7D1F2E082600D93EC6 /* Assets.xcassets in Resources */,
 				8AFA74CB1F321D4C00EC88AA /* MTShopOrderFoodCell.xib in Resources */,
+				8A8197E71F389E1900F4BB02 /* MTShopCarView.xib in Resources */,
 				8AEB35621F331BF0004B4D9D /* MTFoodDetailsCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -760,19 +798,21 @@
 				8A200FDD1F319EC10095A073 /* UIView+Addition.m in Sources */,
 				8AAD6DEE1F2E09F000D93EC6 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				8A200FD51F317CEB0095A073 /* MTLoopView.m in Sources */,
+				8A8197ED1F389EF800F4BB02 /* MTShopCarModel.m in Sources */,
 				8AAD6DFE1F2E09F000D93EC6 /* UIImage+MultiFormat.m in Sources */,
 				8AEB35611F331BF0004B4D9D /* MTFoodDetailsCell.m in Sources */,
 				8AFA74B51F320D0B00EC88AA /* MTShopOrderController.m in Sources */,
 				8AAD6DF71F2E09F000D93EC6 /* SDWebImageDecoder.m in Sources */,
 				8AAD6DE71F2E09F000D93EC6 /* MASCompositeConstraint.m in Sources */,
 				8AAD6DF21F2E09F000D93EC6 /* NSData+ImageContentType.m in Sources */,
+				8A8197EA1F389ED000F4BB02 /* MTShopCarView.m in Sources */,
+				8A8197E21F38887D00F4BB02 /* MTFoodDetailsFlowLayout.m in Sources */,
 				8AFA74CA1F321D4C00EC88AA /* MTShopOrderFoodCell.m in Sources */,
 				8AAD6DF91F2E09F000D93EC6 /* SDWebImageDownloaderOperation.m in Sources */,
 				8A21C60F1F32CB5100B82883 /* MTShopOrderCountView.m in Sources */,
 				8AFA74B81F320F8600EC88AA /* MTShopOrderCategoryModel.m in Sources */,
 				8AAD6DE41F2E09F000D93EC6 /* AFURLRequestSerialization.m in Sources */,
 				8AA1DE2C1F2F44DE000E70FD /* MTNavBar.m in Sources */,
-				8AEB35651F333B0D004B4D9D /* MTFoodDetailsFlowLayout.m in Sources */,
 				8AAD6DF51F2E09F000D93EC6 /* SDImageCacheConfig.m in Sources */,
 				8AA1DE3F1F2F561C000E70FD /* UIImage+DashLine.m in Sources */,
 				8AAD6E0E1F2E09F800D93EC6 /* NSArray+Addition.m in Sources */,

@@ -33,8 +33,7 @@
 //约束线
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *liens;
 
-//countview
-@property (nonatomic, weak) MTShopOrderCountView *countView;
+
 
 @end
 @implementation MTShopOrderFoodCell

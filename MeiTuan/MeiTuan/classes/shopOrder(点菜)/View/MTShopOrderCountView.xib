@@ -47,6 +47,7 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="addBtn" destination="YzQ-7R-P7g" id="MDY-VF-q0a"/>
                 <outlet property="countLabel" destination="ehN-YP-OdJ" id="0ZI-fD-1mX"/>
                 <outlet property="minusBtn" destination="js5-Xg-zIl" id="gAe-Pq-XKC"/>
             </connections>
